@@ -9,6 +9,7 @@ A conversion-focused, single-product Shopify theme for Leafanoo. The home page i
 - Sections: hero, benefits, features, lifestyle, pricing, trust, shipping & returns, FAQ, reviews, final CTA, footer
 - SEO-ready: meta tags, OpenGraph, JSON-LD product schema
 - Minimal, luxury-inspired styling with warm neutrals and mobile-first layout
+- Direct-to-checkout flow with /cart auto-redirecting to checkout
 
 ## Theme structure
 ```
@@ -72,3 +73,5 @@ development:
 - The home page is the landing page; no collection grid or catalog browsing is included.
 - Buttons are styled for hover/active states and smooth scrolling is enabled globally.
 - Sticky CTA is mobile-only to reduce friction on smaller screens.
+- Visiting `/cart` will auto-add the featured product and send customers to checkout. If the product is missing, the page links back
+  home.
