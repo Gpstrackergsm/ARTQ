@@ -234,29 +234,12 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 1rem;
 }
 
-.cart__subtotal {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.cart__note {
-  margin: 0;
-  color: var(--muted);
-}
-
 .cart__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
   align-items: center;
-  justify-content: space-between;
-}
-
-.cart__continue {
-  color: var(--muted);
-  text-decoration: underline;
+  justify-content: flex-end;
 }
 
 .cart__action-buttons {

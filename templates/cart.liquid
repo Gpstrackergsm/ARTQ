@@ -8,7 +8,6 @@
       <p class="eyebrow">Your cart</p>
       <h1>Nothing here yet</h1>
       <p class="cart__subtext">Browse the collection to add the handcrafted fruit stand to your home.</p>
-      <a class="btn" href="/">Continue shopping</a>
     </div>
   </section>
 {% else %}
@@ -54,15 +53,7 @@
       </div>
 
       <div class="cart__summary">
-        <div class="cart__totals">
-          <div class="cart__subtotal">
-            <span>Subtotal</span>
-            <span>{{ cart.total_price | money }}</span>
-          </div>
-          <p class="cart__note">Shipping and taxes calculated at checkout.</p>
-        </div>
         <div class="cart__actions">
-          <a class="cart__continue" href="/">Continue shopping</a>
           <div class="cart__action-buttons">
             <button type="submit" name="update" class="btn btn-secondary">Update cart</button>
             <button type="submit" name="checkout" class="btn">Checkout</button>
