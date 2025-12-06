@@ -1,0 +1,13 @@
+[
+  {
+    "name": "leafanoo-one-product",
+    "settings": [
+      {
+        "type": "text",
+        "id": "product_handle",
+        "label": "Product handle",
+        "default": "handmade-artistic-fruit-stand-functional-design-for-modern-homes"
+      }
+    ]
+  }
+]
