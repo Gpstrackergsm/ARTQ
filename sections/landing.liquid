@@ -1,0 +1,207 @@
+{% assign product_handle = settings.product_handle | default: 'handmade-artistic-fruit-stand-functional-design-for-modern-homes' %}
+{% assign product = all_products[product_handle] %}
+{% assign primary_variant = product.selected_or_first_available_variant %}
+<section class="hero" id="top">
+  <div class="hero__copy">
+    <p class="eyebrow">Limited Release</p>
+    <h1>Handmade Artistic Fruit Stand — Functional Design for Modern Homes</h1>
+    <p class="lede">Sculptural lines, hand-finished metal, and a balanced silhouette that elevates any countertop.</p>
+    <div class="cta-group">
+      {% if product != blank and primary_variant %}
+        {% form 'product', product, id: 'hero-buy-now' %}
+          <input type="hidden" name="id" value="{{ primary_variant.id }}">
+          <button type="submit" name="checkout" class="btn btn-primary">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
+          {{ form | payment_button }}
+        {% endform %}
+      {% else %}
+        <a class="btn btn-primary" href="/products/{{ product_handle }}">Buy Now — $49</a>
+      {% endif %}
+      <p class="urgency">Only 12 units left • free carbon-neutral shipping</p>
+      <div class="badges">
+        <span>✔ Free shipping</span>
+        <span>✔ 30-day returns</span>
+        <span>✔ Secure checkout</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero__image">
+    <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/IMG_1752.jpg?v=1765054741" alt="Handmade Artistic Fruit Stand" loading="eager">
+    <div class="countdown" data-countdown-hours="48">
+      <p>Launch savings end in</p>
+      <div class="countdown__timer" id="countdown-timer">48:00:00</div>
+    </div>
+  </div>
+</section>
+
+<section class="summary">
+  <div class="summary__grid">
+    <div>
+      <h2>Designed to elevate daily rituals</h2>
+      <p>Handcrafted from premium metal and sealed with a satin clear coat for a warm, modern sheen.</p>
+    </div>
+    <div>
+      <p class="stat">79 → <strong>$49</strong> launch price</p>
+      <p class="stat">One-click checkout enabled</p>
+      <p class="stat">Ships within 24 hours</p>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="section-heading">
+    <p class="eyebrow">Highlights</p>
+    <h3>Functional art built to last</h3>
+  </div>
+  <div class="features__list">
+    <div class="feature-card">
+      <h4>Balanced, airy geometry</h4>
+      <p>Open tiers keep fruit ventilated and crisp while showing off colorful produce like a gallery piece.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Hand-finished texture</h4>
+      <p>Each stand is individually finished for a subtle, tactile surface that feels luxurious to the touch.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Space-smart footprint</h4>
+      <p>Tall, vertical silhouette saves counter space yet holds a full week of fruit for a busy home.</p>
+    </div>
+  </div>
+</section>
+
+<section class="lifestyle" style="background-image:url('https://cdn.shopify.com/s/files/1/0989/7020/6389/files/IMG_1752.jpg?v=1765054741');">
+  <div class="lifestyle__overlay">
+    <h3>Sculptural presence in any kitchen</h3>
+    <p>Neutral tones pair with marble, oak, and stainless steel so the stand feels tailor-made for your space.</p>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="pricing__card">
+    <div>
+      <p class="eyebrow">Special launch offer</p>
+      <div class="price-row">
+        <span class="price">$49</span>
+        <span class="compare">$79</span>
+      </div>
+      <p class="subtle">Free shipping + 30-day money-back guarantee</p>
+    </div>
+    <div class="cta-group">
+      {% if product != blank and primary_variant %}
+        {% form 'product', product, id: 'pricing-buy-now' %}
+          <input type="hidden" name="id" value="{{ primary_variant.id }}">
+          <button type="submit" name="checkout" class="btn btn-primary btn-full">Buy Now</button>
+        {% endform %}
+      {% else %}
+        <a class="btn btn-primary btn-full" href="/products/{{ product_handle }}">Buy Now</a>
+      {% endif %}
+      <p class="urgency">Selling quickly — restock in 4 weeks</p>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="trust__badges">
+    <div class="badge">🚚 Free insured shipping</div>
+    <div class="badge">💳 Secure checkout</div>
+    <div class="badge">↩️ 30-day returns</div>
+    <div class="badge">💬 Real human support</div>
+  </div>
+</section>
+
+<section class="shipping-returns">
+  <div class="section-heading">
+    <p class="eyebrow">Logistics</p>
+    <h3>Shipping & Returns</h3>
+  </div>
+  <div class="shipping-returns__grid">
+    <div>
+      <h4>Fast, free delivery</h4>
+      <p>We ship from US-based facilities within one business day. Tracking and insurance included.</p>
+    </div>
+    <div>
+      <h4>30-day guarantee</h4>
+      <p>Not the right fit? Send it back within 30 days for a full refund. We cover defects, dents, or finish issues.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="section-heading">
+    <p class="eyebrow">Details</p>
+    <h3>Frequently asked</h3>
+  </div>
+  <div class="faq__items">
+    <details open>
+      <summary>Will the stand scratch countertops?</summary>
+      <p>Each base includes soft feet to keep surfaces safe and stable on marble, quartz, or wood.</p>
+    </details>
+    <details>
+      <summary>How do I clean it?</summary>
+      <p>Wipe with a damp cloth and dry immediately. Avoid abrasive pads to preserve the satin finish.</p>
+    </details>
+    <details>
+      <summary>Is assembly required?</summary>
+      <p>No tools needed. The stand arrives fully assembled and ready to style out of the box.</p>
+    </details>
+    <details>
+      <summary>What is the size?</summary>
+      <p>Approx. 14" tall with two tiers designed to hold a full household assortment of fruit.</p>
+    </details>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="section-heading">
+    <p class="eyebrow">Social proof</p>
+    <h3>Loved by design-minded homes</h3>
+  </div>
+  <div class="reviews__grid">
+    <article class="review">
+      <p class="quote">“Feels like a sculpture on my island. The airflow keeps citrus fresher longer.”</p>
+      <p class="author">— Mara L., interior stylist</p>
+    </article>
+    <article class="review">
+      <p class="quote">“Matches my matte black fixtures perfectly. Worth every penny.”</p>
+      <p class="author">— Daniel R., homeowner</p>
+    </article>
+    <article class="review">
+      <p class="quote">“Bought two as gifts. Packaging is gorgeous and it arrives ready to display.”</p>
+      <p class="author">— Priya K., repeat customer</p>
+    </article>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-cta__content">
+    <h3>Bring gallery-worthy design to your kitchen</h3>
+    <p>Secure your limited release Handmade Artistic Fruit Stand before this batch sells out.</p>
+    {% if product != blank and primary_variant %}
+      {% form 'product', product, id: 'final-buy-now' %}
+        <input type="hidden" name="id" value="{{ primary_variant.id }}">
+        <button type="submit" name="checkout" class="btn btn-primary">Checkout now</button>
+      {% endform %}
+    {% else %}
+      <a class="btn btn-primary" href="/products/{{ product_handle }}">Checkout now</a>
+    {% endif %}
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__links">
+    <a href="/policies/privacy-policy">Privacy Policy</a>
+    <a href="/policies/terms-of-service">Terms of Service</a>
+    <a href="/policies/refund-policy">Refund Policy</a>
+  </div>
+  <p class="footer__note">leafanoo-one-product · Version 1.0.0</p>
+</footer>
+
+<div class="sticky-cta" id="sticky-cta">
+  {% if product != blank and primary_variant %}
+    {% form 'product', product, id: 'sticky-buy-now' %}
+      <input type="hidden" name="id" value="{{ primary_variant.id }}">
+      <button type="submit" name="checkout" class="btn btn-primary btn-full">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
+    {% endform %}
+  {% else %}
+    <a class="btn btn-primary btn-full" href="/products/{{ product_handle }}">Buy Now — $49</a>
+  {% endif %}
+</div>

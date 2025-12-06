@@ -1,0 +1,13 @@
+{
+  "current": {
+    "sections": {
+      "landing": {
+        "type": "landing",
+        "settings": {}
+      }
+    },
+    "order": [
+      "landing"
+    ]
+  }
+}
