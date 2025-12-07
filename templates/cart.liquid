@@ -1,44 +1,65 @@
-{% assign product_handle = settings.product_handle | default: 'handmade-artistic-fruit-stand-functional-design-for-modern-homes' %}
-{% assign product = all_products[product_handle] %}
-{% assign variant = product.selected_or_first_available_variant %}
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Redirecting to checkout...</title>
-  {% if product and variant %}
-    <meta http-equiv="refresh" content="0;url=/checkout">
-  {% else %}
-    <meta http-equiv="refresh" content="3;url=/">
-  {% endif %}
-  <style>
-    body { font-family: Arial, sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; background:#f8f6f3; color:#181614; }
-    .card { background:#fff; padding:2rem; border-radius:14px; box-shadow:0 18px 36px rgba(0,0,0,0.08); max-width:420px; text-align:center; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; padding:0.85rem 1.2rem; background:#1f1b16; color:#fff; border-radius:999px; text-decoration:none; font-weight:600; }
-  </style>
-</head>
-<body>
-  <div class="card">
-    {% if product and variant %}
-      <p>Adding your Handmade Artistic Fruit Stand and sending you to secure checkout...</p>
-      <form id="direct-checkout" action="/cart/add" method="post">
-        <input type="hidden" name="id" value="{{ variant.id }}">
-        <input type="hidden" name="quantity" value="1">
-        <input type="hidden" name="return_to" value="/checkout">
-      </form>
-      <noscript>
-        <button class="btn" type="submit" form="direct-checkout">Continue to checkout</button>
-      </noscript>
-      <script>
-        window.addEventListener('load', function() {
-          document.getElementById('direct-checkout').submit();
-        });
-      </script>
-    {% else %}
-      <p>We couldn't find the product. Please continue to the landing page to shop.</p>
-      <a class="btn" href="/">Back to home</a>
-    {% endif %}
-  </div>
-</body>
-</html>
+{% comment %}
+  Cart page displaying current line items with ability to update quantities or proceed to checkout.
+{% endcomment %}
+
+{% if cart.item_count == 0 %}
+  <section class="cart cart--empty">
+    <div class="cart__header">
+      <p class="eyebrow">Your cart</p>
+      <h1>Nothing here yet</h1>
+      <p class="cart__subtext">Browse the collection to add the handcrafted fruit stand to your home.</p>
+    </div>
+  </section>
+{% else %}
+  <section class="cart">
+    <div class="cart__header">
+      <p class="eyebrow">Your cart</p>
+      <h1>Ready for checkout</h1>
+      <p class="cart__subtext">Review your items, adjust quantities, and continue to secure checkout.</p>
+    </div>
+
+    <form action="/cart" method="post" class="cart__form">
+      <div class="cart__items" role="list">
+        {% for item in cart.items %}
+          <article class="cart-item" role="listitem">
+            {% if item.image %}
+              <a class="cart-item__image" href="{{ item.url }}">
+                <img src="{{ item.image | image_url: width: 360 }}" alt="{{ item.title | escape }}">
+              </a>
+            {% endif %}
+            <div class="cart-item__info">
+              <div class="cart-item__title">
+                <h2>{{ item.product.title }}</h2>
+                {% unless item.variant.title == 'Default Title' %}
+                  <p class="cart-item__variant">{{ item.variant.title }}</p>
+                {% endunless %}
+              </div>
+              <div class="cart-item__meta">
+                <div class="cart-item__price">
+                  {{ item.final_price | money }}
+                </div>
+                <label class="cart-item__quantity" for="updates-{{ forloop.index }}">
+                  <span>Quantity</span>
+                  <input id="updates-{{ forloop.index }}" name="updates[{{ item.key }}]" type="number" min="0" value="{{ item.quantity }}">
+                </label>
+                <div class="cart-item__line">
+                  {{ item.final_line_price | money }}
+                </div>
+              </div>
+              <button type="submit" name="updates[{{ item.key }}]" value="0" class="cart-item__remove">Remove</button>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="cart__summary">
+        <div class="cart__actions">
+          <div class="cart__action-buttons">
+            <button type="submit" name="update" class="btn btn-secondary">Update cart</button>
+            <button type="submit" name="checkout" class="btn">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+{% endif %}
