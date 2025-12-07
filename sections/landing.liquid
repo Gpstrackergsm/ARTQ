@@ -11,7 +11,6 @@
         {% form 'product', product, id: 'hero-buy-now' %}
           <input type="hidden" name="id" value="{{ primary_variant.id }}">
           <button type="submit" name="checkout" class="btn btn-primary">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
-          {{ form | payment_button }}
         {% endform %}
       {% else %}
         <a class="btn btn-primary" href="/products/{{ product_handle }}">Buy Now — $49</a>
