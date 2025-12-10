@@ -1,103 +1,177 @@
-<div style="font-family: 'Helvetica Neue', Arial, sans-serif; background: linear-gradient(180deg, #f6f1ff 0%, #fdf9f3 100%); color: #2f2443; padding: 0; margin: 0;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Highly Sensitive Person book helps HSPs, empaths, and deep feelers transform overwhelm into strength with science-backed strategies for calm living.">
+  <meta name="keywords" content="Highly Sensitive Person, HSP book, emotional sensitivity, overstimulation, empath psychology, Elaine Aron, national bestseller">
+  <title>The Highly Sensitive Person: How to Thrive When the World Overwhelms You</title>
   <style>
-    .hsp-wrapper { max-width: 1100px; margin: 0 auto; padding: 32px 20px 48px; box-sizing: border-box; }
-    .hsp-hero { background: linear-gradient(120deg, #dcd2ff 0%, #f2ecff 40%, #fff6f0 100%); border-radius: 18px; padding: 28px; box-shadow: 0 15px 40px rgba(71, 45, 116, 0.15); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: center; }
-    .hsp-hero img { width: 100%; max-width: 360px; border-radius: 16px; box-shadow: 0 12px 30px rgba(47, 36, 67, 0.22); }
-    .hsp-badge { display: inline-block; background: rgba(76, 53, 122, 0.12); color: #4c357a; padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 13px; letter-spacing: 0.4px; margin-bottom: 12px; }
-    .hsp-title { font-size: 34px; line-height: 1.2; margin: 0 0 12px; color: #2f2443; }
-    .hsp-sub { font-size: 17px; color: #4a3c63; line-height: 1.6; margin-bottom: 18px; }
-    .hsp-rating { font-size: 14px; color: #6b5c84; margin-bottom: 18px; }
-    .hsp-cta { display: inline-flex; align-items: center; gap: 10px; padding: 14px 20px; background: linear-gradient(120deg, #7c5eff, #a27cff); color: #fff; text-decoration: none; font-weight: 700; border-radius: 12px; box-shadow: 0 10px 26px rgba(124, 94, 255, 0.35); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .hsp-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(124, 94, 255, 0.45); }
-    .hsp-section { margin-top: 42px; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 8px 24px rgba(63, 45, 94, 0.12); }
-    .hsp-section h2 { margin: 0 0 12px; font-size: 24px; color: #2f2443; }
-    .hsp-section p { color: #4a3c63; line-height: 1.6; margin: 0 0 12px; }
-    .hsp-bullets { display: grid; gap: 12px; margin: 12px 0 0; }
-    .hsp-bullets div { background: #f5f0ff; border: 1px solid #e6dbff; padding: 12px 14px; border-radius: 12px; color: #3f305b; font-weight: 600; box-shadow: 0 6px 16px rgba(71, 45, 116, 0.08); }
-    .hsp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 14px; }
-    .hsp-card { background: #fdfaf6; border: 1px solid #f0e4ff; padding: 14px; border-radius: 12px; box-shadow: 0 6px 18px rgba(47, 36, 67, 0.08); }
-    .hsp-card h3 { margin: 0 0 8px; font-size: 16px; color: #2f2443; }
-    .hsp-card p { margin: 0; color: #4a3c63; font-size: 14px; line-height: 1.5; }
-    .hsp-testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
-    .hsp-quote { background: #f2ecff; border: 1px solid #e3d6ff; border-radius: 12px; padding: 14px; box-shadow: 0 6px 18px rgba(47, 36, 67, 0.08); color: #3f305b; font-style: italic; }
-    .hsp-quote strong { display: block; margin-top: 10px; font-style: normal; color: #2f2443; }
-    .hsp-who { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 12px; }
-    .hsp-who div { background: #fdf8ff; border: 1px solid #eedfff; padding: 12px 14px; border-radius: 12px; box-shadow: 0 6px 16px rgba(71, 45, 116, 0.08); color: #3f305b; }
-    .hsp-purchase { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; align-items: center; }
-    .hsp-purchase .info { background: #fff; border: 1px solid #efe1ff; padding: 16px; border-radius: 14px; box-shadow: 0 6px 18px rgba(71, 45, 116, 0.1); }
-    .hsp-price { font-size: 24px; color: #2f2443; font-weight: 700; margin: 0 0 10px; }
-    .hsp-note { color: #4a3c63; font-size: 14px; }
+    :root {
+      --lavender: #e8e4ff;
+      --mint: #e7f5f1;
+      --peach: #ffe9de;
+      --ink: #2f2443;
+      --plum: #5b3f87;
+      --soft: #f9f6ff;
+    }
+    body { margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--ink); background: linear-gradient(180deg, #f6f2ff 0%, #fefaf6 50%, #f7fffd 100%); }
+    .page { max-width: 1200px; margin: 0 auto; padding: 24px 18px 48px; box-sizing: border-box; }
+    h1, h2 { margin: 0; }
+    .hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; align-items: center; background: linear-gradient(120deg, #dcd2ff 0%, #f3eafc 40%, #fff2eb 100%); border-radius: 20px; padding: 28px; box-shadow: 0 18px 42px rgba(71, 45, 116, 0.14); }
+    .hero .badge { display: inline-block; background: rgba(91, 63, 135, 0.12); color: var(--plum); padding: 8px 14px; border-radius: 999px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 12px; }
+    .hero h1 { font-size: 34px; line-height: 1.18; }
+    .hero p { color: #4a3c63; line-height: 1.6; font-size: 17px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 22px; background: linear-gradient(120deg, #7c5eff, #a27cff); color: #fff; text-decoration: none; font-weight: 800; border-radius: 14px; box-shadow: 0 14px 30px rgba(124, 94, 255, 0.35); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(124, 94, 255, 0.45); }
+    .hero img { width: 100%; max-width: 360px; border-radius: 18px; box-shadow: 0 14px 36px rgba(47, 36, 67, 0.22); background: #fff; padding: 8px; }
+    .rating-strip { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; color: #594b75; font-weight: 600; margin-top: 12px; }
+    .section { margin-top: 42px; background: #fff; border-radius: 18px; padding: 24px; box-shadow: 0 10px 24px rgba(63, 45, 94, 0.12); }
+    .section h2 { font-size: 24px; color: var(--ink); margin-bottom: 12px; }
+    .section p { color: #4a3c63; line-height: 1.6; margin: 0 0 10px; }
+    .social-proof { display: flex; flex-wrap: wrap; gap: 14px; }
+    .pill { background: var(--soft); border: 1px solid #e6dbff; padding: 10px 14px; border-radius: 12px; font-weight: 700; color: #3f305b; box-shadow: 0 6px 16px rgba(71, 45, 116, 0.08); }
+    .hook-grid, .learn-grid, .testimonials, .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .hook-card, .learn-card, .who-card { background: #f5f0ff; border: 1px solid #e6dbff; padding: 14px; border-radius: 12px; color: #3f305b; font-weight: 700; box-shadow: 0 8px 18px rgba(71, 45, 116, 0.08); }
+    .learn-card p, .who-card p { font-weight: 600; margin: 0; }
+    .learn-card { background: #fdfaf6; border-color: #f2e5ff; }
+    .testimonial-card { background: linear-gradient(150deg, #f2ecff 0%, #fdf7ff 100%); border: 1px solid #e3d6ff; border-radius: 14px; padding: 16px; box-shadow: 0 8px 20px rgba(47, 36, 67, 0.1); color: #3f305b; }
+    .testimonial-card .name { font-weight: 800; color: var(--ink); margin-top: 10px; }
+    .testimonial-card .role { color: #6b5c84; font-size: 13px; margin-top: 2px; }
+    .authority { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 12px; }
+    .authority div { background: var(--mint); border: 1px solid #d7f1ea; padding: 14px; border-radius: 12px; font-weight: 700; color: #2f5148; box-shadow: 0 8px 18px rgba(40, 86, 69, 0.08); }
+    .cta-final { text-align: center; background: linear-gradient(140deg, #d9f7ef 0%, #fef2ff 60%, #ffece1 100%); padding: 28px; border-radius: 18px; box-shadow: 0 16px 36px rgba(47, 36, 67, 0.12); }
+    .cta-final h2 { font-size: 26px; margin-bottom: 14px; }
+    .cta-final p { font-size: 17px; color: #4a3c63; }
     @media (max-width: 640px) {
-      .hsp-title { font-size: 28px; }
-      .hsp-hero { padding: 22px; }
-      .hsp-section { padding: 20px; }
-      .hsp-cta { width: 100%; justify-content: center; }
+      .hero { padding: 22px; }
+      .hero h1 { font-size: 28px; }
+      .section { padding: 20px; }
+      .cta { width: 100%; }
     }
   </style>
-  <div class="hsp-wrapper">
-    <section class="hsp-hero">
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
       <div>
-        <div class="hsp-badge">For Highly Sensitive People</div>
-        <h1 class="hsp-title">The Highly Sensitive Person: How to Thrive When the World Overwhelms You</h1>
-        <p class="hsp-sub">A National Bestseller that helps Highly Sensitive People understand themselves, reduce overwhelm, reclaim confidence, and thrive emotionally.</p>
-        <div class="hsp-rating">⭐️ 4.5/5 from 10,498 Amazon reviews &nbsp;|&nbsp; 3.8 on Goodreads with 53,848 ratings</div>
-        <a class="hsp-cta" href="/cart/add?id=VARIANT_ID">Add to Cart — Start Calmer Living</a>
+        <div class="badge">For Highly Sensitive People</div>
+        <h1>The Highly Sensitive Person: How to Thrive When the World Overwhelms You</h1>
+        <p>This national bestseller by clinical psychologist Dr. Elaine N. Aron unpacks the science and psychology of high sensitivity, teaching you how to protect your energy, create steady emotional resilience, and thrive in a world that often feels too loud.</p>
+        <div class="rating-strip" aria-label="Product ratings">
+          <span>⭐⭐⭐⭐½ 4.5 out of 5 stars</span>
+          <span>10,498 reader reviews</span>
+          <span>Goodreads 3.8 / 53,848 ratings</span>
+          <span>National Bestseller</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:18px;">
+          <a class="cta" href="/products/the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you">Buy Now — Read Today</a>
+          <a class="cta" style="background: linear-gradient(120deg, #7edcc3, #5ab0a0); box-shadow: 0 14px 30px rgba(94, 188, 167, 0.35);" href="#cta-final">Discover Yourself</a>
+        </div>
       </div>
       <div style="display:flex; justify-content:center;">
         <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" alt="The Highly Sensitive Person book cover" loading="lazy">
       </div>
     </section>
 
-    <section class="hsp-section">
-      <h2>Is this you?</h2>
-      <div class="hsp-bullets">
-        <div>❥ Loud rooms, bright lights, and constant noise leave you drained</div>
-        <div>❥ You absorb other people’s emotions and feel overwhelmed</div>
-        <div>❥ You second-guess yourself and struggle to set gentle boundaries</div>
-        <div>❥ You want to turn sensitivity into confidence—not stress</div>
+    <section class="section" aria-labelledby="social-proof">
+      <h2 id="social-proof">Loved by sensitive readers worldwide</h2>
+      <p>Proof that you’re not alone—and that this book works.</p>
+      <div class="social-proof">
+        <div class="pill">⭐⭐⭐⭐½ 4.5 stars</div>
+        <div class="pill">10,498 reader reviews</div>
+        <div class="pill">53,848 Goodreads ratings</div>
+        <div class="pill">National Bestseller</div>
       </div>
     </section>
 
-    <section class="hsp-section">
-      <h2>What you’ll learn</h2>
-      <div class="hsp-grid">
-        <div class="hsp-card"><h3>Understand Your Trait</h3><p>Discover why your nervous system processes the world more deeply—and how to honor it.</p></div>
-        <div class="hsp-card"><h3>Calm Overwhelm</h3><p>Simple routines to soothe sensory overload and regain steady energy each day.</p></div>
-        <div class="hsp-card"><h3>Gentle Boundaries</h3><p>Scripts and strategies to say no with grace while keeping relationships warm.</p></div>
-        <div class="hsp-card"><h3>Confident Self-Trust</h3><p>Rebuild confidence by turning intuition into your quiet superpower.</p></div>
-        <div class="hsp-card"><h3>Emotional Resilience</h3><p>Move through big feelings without shutdown or burnout.</p></div>
-        <div class="hsp-card"><h3>Thrive in Busy Spaces</h3><p>Tools to stay grounded at work, in crowds, and during intense conversations.</p></div>
+    <section class="section" aria-labelledby="emotional-hook">
+      <h2 id="emotional-hook">Do these feel familiar?</h2>
+      <div class="hook-grid">
+        <div class="hook-card">Are you easily overwhelmed?</div>
+        <div class="hook-card">Do you need time alone to reset?</div>
+        <div class="hook-card">Do noise and stress drain you fast?</div>
+        <div class="hook-card">Do others call you “too sensitive”?</div>
       </div>
     </section>
 
-    <section class="hsp-section">
-      <h2>Readers feel seen</h2>
-      <div class="hsp-testimonials">
-        <div class="hsp-quote">“I finally understand why I feel so much—and how to protect my peace.”<strong>— Maya, therapist</strong></div>
-        <div class="hsp-quote">“The scripts for gentle boundaries alone were worth it. Less guilt, more calm.”<strong>— Jordan, teacher</strong></div>
-        <div class="hsp-quote">“I used to think something was wrong with me. Now my sensitivity is a strength.”<strong>— Priya, designer</strong></div>
-        <div class="hsp-quote">“Simple, compassionate, and practical. I’m resting better and feeling lighter.”<strong>— Alexis, parent</strong></div>
+    <section class="section" aria-labelledby="learn">
+      <h2 id="learn">What you'll learn</h2>
+      <div class="learn-grid">
+        <div class="learn-card"><p>Self-assessment tests</p></div>
+        <div class="learn-card"><p>Emotional resilience</p></div>
+        <div class="learn-card"><p>Overstimulation management</p></div>
+        <div class="learn-card"><p>Relationships &amp; boundaries</p></div>
+        <div class="learn-card"><p>Medications guidance</p></div>
+        <div class="learn-card"><p>Spiritual growth</p></div>
       </div>
     </section>
 
-    <section class="hsp-section">
-      <h2>Who this book is for</h2>
-      <div class="hsp-who">
-        <div>Highly sensitive people ready to understand their wiring</div>
-        <div>Empaths who want steadier emotional boundaries</div>
-        <div>Anyone feeling overstimulated by work, relationships, or social media</div>
-        <div>Parents, partners, and friends wanting to support an HSP</div>
-      </div>
-    </section>
-
-    <section class="hsp-section">
-      <div class="hsp-purchase">
-        <div class="info">
-          <div class="hsp-price">$<span style="font-size:28px;">19.99</span> <span style="font-size:14px; color:#6b5c84;">USD</span></div>
-          <p class="hsp-note">Instant calm awaits. Add the book to your cart and get the roadmap to thriving as a Highly Sensitive Person.</p>
+    <section class="section" aria-labelledby="testimonials">
+      <h2 id="testimonials">Readers who felt seen</h2>
+      <div class="testimonials">
+        <div class="testimonial-card">
+          <div>⭐⭐⭐⭐⭐</div>
+          <p>“As a mom with ADHD, I finally understand why motherhood felt so intense—and how to give myself grace without guilt.”</p>
+          <div class="name">Trice Weston</div>
+          <div class="role">ADHD, motherhood &amp; sensitivity</div>
         </div>
-        <a class="hsp-cta" href="/cart/add?id=VARIANT_ID">Add to Cart</a>
+        <div class="testimonial-card">
+          <div>⭐⭐⭐⭐⭐</div>
+          <p>“I read this in a toxic job and it gave me the language to leave. My life and nervous system are calmer than ever.”</p>
+          <div class="name">A. Biggs</div>
+          <div class="role">Left a toxic job, life transformation</div>
+        </div>
+        <div class="testimonial-card">
+          <div>⭐⭐⭐⭐⭐</div>
+          <p>“It empowered me and my son to honor our sensitivity instead of fighting it. Our home feels peaceful now.”</p>
+          <div class="name">Joy C.</div>
+          <div class="role">Mother &amp; son empowerment</div>
+        </div>
+        <div class="testimonial-card">
+          <div>⭐⭐⭐⭐⭐</div>
+          <p>“For the first time I see my sensitivity as identity, not a flaw. Healing and practical.”</p>
+          <div class="name">Jeannie</div>
+          <div class="role">Identity healing</div>
+        </div>
+        <div class="testimonial-card">
+          <div>⭐⭐⭐⭐⭐</div>
+          <p>“Our marriage stopped feeling like friction once we understood overstimulation. We talk and rest differently now.”</p>
+          <div class="name">Michael &amp; Ashley</div>
+          <div class="role">Marriage impact</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="authority">
+      <h2 id="authority">Psychological authority you can trust</h2>
+      <p>Dr. Elaine N. Aron is a clinical psychologist and a Highly Sensitive Person herself. Every chapter blends research, case studies, and practical tools you can use immediately.</p>
+      <div class="authority">
+        <div>Science-based framework</div>
+        <div>Not motivational fluff—evidence-backed tools</div>
+        <div>Decades of peer-reviewed research</div>
+        <div>Written by a clinical psychologist who is an HSP</div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="who">
+      <h2 id="who">Who this book is for</h2>
+      <div class="who-grid">
+        <div class="who-card"><p>Empaths</p></div>
+        <div class="who-card"><p>Introverts</p></div>
+        <div class="who-card"><p>Burnout professionals</p></div>
+        <div class="who-card"><p>Highly emotional personalities</p></div>
+        <div class="who-card"><p>People who feel different</p></div>
+      </div>
+    </section>
+
+    <section class="section cta-final" id="cta-final" aria-labelledby="final-cta">
+      <h2 id="final-cta">You are not broken. You are wired differently.</h2>
+      <p>This book teaches you how to live, not just survive. Step into a calmer, more confident life as a Highly Sensitive Person.</p>
+      <div style="margin-top:16px; display:flex; justify-content:center;">
+        <a class="cta" href="/products/the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you">Buy Now — Begin Thriving</a>
       </div>
     </section>
   </div>
-</div>
+</body>
+</html>
