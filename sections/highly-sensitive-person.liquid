@@ -19,7 +19,7 @@
           <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
         {% endform %}
       {% else %}
-        <a class="hsp-btn hsp-btn-primary" href="/products/{{ product_handle }}">Buy Now — $17</a>
+        <a class="hsp-btn hsp-btn-primary" href="/checkout">Buy Now — $17</a>
       {% endif %}
       <p class="hsp-urgency">Free U.S. shipping · Ships in 24 hours · 30-day returns</p>
       <div class="hsp-badges">
@@ -177,7 +177,7 @@
             <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary">Get the book</button>
           {% endform %}
         {% else %}
-          <a class="hsp-btn hsp-btn-primary" href="/products/{{ product_handle }}">Get the book</a>
+          <a class="hsp-btn hsp-btn-primary" href="/checkout">Get the book</a>
         {% endif %}
         <p class="hsp-urgency">Order now for free U.S. shipping and instant bonus download.</p>
       </div>
@@ -195,7 +195,7 @@
       <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary hsp-btn-full">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
     {% endform %}
   {% else %}
-    <a class="hsp-btn hsp-btn-primary hsp-btn-full" href="/products/{{ product_handle }}">Buy Now — $17</a>
+    <a class="hsp-btn hsp-btn-primary hsp-btn-full" href="/checkout">Buy Now — $17</a>
   {% endif %}
 </div>
 
