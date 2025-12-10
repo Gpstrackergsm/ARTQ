@@ -1,0 +1,334 @@
+{% assign product_handle = settings.product_handle | default: 'the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you' %}
+{% assign product = all_products[product_handle] %}
+{% assign primary_variant = product.selected_or_first_available_variant %}
+
+<section class="hsp-hero" id="top">
+  <div class="hsp-hero__copy">
+    <p class="hsp-eyebrow">National Bestseller · Psychology Classic</p>
+    <h1>The Highly Sensitive Person: How to Thrive When the World Overwhelms You</h1>
+    <p class="hsp-lede">Elaine N. Aron, PhD, maps out a calm, science-backed path for Highly Sensitive People to protect their energy, set compassionate boundaries, and feel seen in a loud world.</p>
+    <div class="hsp-rating-row">
+      <span class="hsp-pill">⭐ 4.5/5 · 10,498 reviews</span>
+      <span class="hsp-pill">Goodreads 3.8 · 53,848 ratings</span>
+      <span class="hsp-pill">Trusted by therapists & readers</span>
+    </div>
+    <div class="hsp-cta-group">
+      {% if product != blank and primary_variant %}
+        {% form 'product', product, id: 'hero-buy-now' %}
+          <input type="hidden" name="id" value="{{ primary_variant.id }}">
+          <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
+        {% endform %}
+      {% else %}
+        <a class="hsp-btn hsp-btn-primary" href="/products/{{ product_handle }}">Buy Now — $17</a>
+      {% endif %}
+      <p class="hsp-urgency">Free U.S. shipping · Ships in 24 hours · 30-day returns</p>
+      <div class="hsp-badges">
+        <span>✔ Paperback + Kindle friendly</span>
+        <span>✔ Includes HSP self-assessment</span>
+        <span>✔ Gentle, research-backed tools</span>
+      </div>
+    </div>
+  </div>
+  <div class="hsp-hero__image">
+    <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" alt="Cover of The Highly Sensitive Person book" loading="eager">
+    <div class="hsp-countdown" data-countdown-hours="48">
+      <p>Limited-time bonus</p>
+      <div class="hsp-countdown__timer" id="hsp-countdown-timer">48:00:00</div>
+      <p class="hsp-subtle">Free reflection worksheet with every order</p>
+    </div>
+  </div>
+</section>
+
+<section class="hsp-reviews">
+  <div class="hsp-reviews__bar">
+    <div class="hsp-review-score">
+      <strong>4.5</strong>
+      <span>10,498 reviews</span>
+    </div>
+    <div class="hsp-review-score">
+      <strong>3.8</strong>
+      <span>Goodreads · 53,848 ratings</span>
+    </div>
+    <div class="hsp-review-score">
+      <strong>National Bestseller</strong>
+      <span>Psychology classic</span>
+    </div>
+  </div>
+</section>
+
+<section class="hsp-pain">
+  <div class="hsp-section-heading">
+    <p class="hsp-eyebrow">For sensitive nervous systems</p>
+    <h2>Does the world feel too loud?</h2>
+  </div>
+  <div class="hsp-pain__grid">
+    <div class="hsp-pain__card">
+      <h3>Overstimulated by everyday life</h3>
+      <p>Bright lights, tight deadlines, and crowded rooms leave you drained faster than everyone else—and you wonder if something is wrong with you.</p>
+    </div>
+    <div class="hsp-pain__card">
+      <h3>People-pleasing to keep the peace</h3>
+      <p>You struggle to say no, absorb everyone’s moods, and end up exhausted from carrying emotional weight that isn’t yours.</p>
+    </div>
+    <div class="hsp-pain__card">
+      <h3>Relationships that miss your depth</h3>
+      <p>You crave understanding and calm, but partners or colleagues see your sensitivity as “too much” instead of a strength.</p>
+    </div>
+  </div>
+</section>
+
+<section class="hsp-learn">
+  <div class="hsp-section-heading">
+    <p class="hsp-eyebrow">Inside the book</p>
+    <h2>What you'll learn</h2>
+  </div>
+  <div class="hsp-learn__list">
+    <div class="hsp-learn__item">How to recognize and honor your Highly Sensitive Person trait without shame.</div>
+    <div class="hsp-learn__item">Daily routines that prevent overstimulation and help you reset quickly.</div>
+    <div class="hsp-learn__item">Scripts to explain your needs to partners, friends, and managers with confidence.</div>
+    <div class="hsp-learn__item">Boundary templates that feel kind, firm, and doable.</div>
+    <div class="hsp-learn__item">Science-backed coping tools for anxiety, conflict, and sensory overload.</div>
+    <div class="hsp-learn__item">How to turn sensitivity into creativity, empathy, and leadership strengths.</div>
+  </div>
+</section>
+
+<section class="hsp-testimonials">
+  <div class="hsp-section-heading">
+    <p class="hsp-eyebrow">Reader love</p>
+    <h2>Testimonials from people who finally felt understood</h2>
+  </div>
+  <div class="hsp-testimonials__grid">
+    <article class="hsp-testimonial">
+      <p class="hsp-quote">“Great book to learn about yourself… taught me how to manage being hypersensitive.”</p>
+      <p class="hsp-author">— Trice Weston</p>
+    </article>
+    <article class="hsp-testimonial">
+      <p class="hsp-quote">“Smart, astute, science-based—and a wake-up call. I felt seen and calmer by chapter two.”</p>
+      <p class="hsp-author">— A. Biggs</p>
+    </article>
+    <article class="hsp-testimonial">
+      <p class="hsp-quote">“Completely changed our lives and gave us language to ask for what we need.”</p>
+      <p class="hsp-author">— Joy C.</p>
+    </article>
+    <article class="hsp-testimonial">
+      <p class="hsp-quote">“If you even think you might be an HSP, this book gently answers the questions you’ve carried for years.”</p>
+      <p class="hsp-author">— Jeannie</p>
+    </article>
+    <article class="hsp-testimonial">
+      <p class="hsp-quote">“Explains sensitivity as a strength. I wish everyone would read this.”</p>
+      <p class="hsp-author">— Michael & Ashley</p>
+    </article>
+  </div>
+</section>
+
+<section class="hsp-authority">
+  <div class="hsp-authority__content">
+    <div>
+      <p class="hsp-eyebrow">Psychology authority</p>
+      <h2>Meet Elaine N. Aron, PhD</h2>
+      <p>Dr. Aron is a clinical psychologist, pioneering researcher, and the first to name the Highly Sensitive Person trait. Her compassionate research has reached millions and is recommended by therapists worldwide.</p>
+      <ul class="hsp-bullets">
+        <li>30+ years researching sensitivity and temperament</li>
+        <li>Featured in <em>The New York Times</em>, <em>Psychology Today</em>, and NPR</li>
+        <li>International workshops for therapists and couples</li>
+      </ul>
+    </div>
+    <div class="hsp-authority__image">
+      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" alt="Author Elaine Aron portrait with book cover" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="hsp-who">
+  <div class="hsp-section-heading">
+    <p class="hsp-eyebrow">Who this is for</p>
+    <h2>Made for HSPs and the people who love them</h2>
+  </div>
+  <div class="hsp-who__grid">
+    <div class="hsp-who__card">
+      <h3>Highly Sensitive People</h3>
+      <p>Understand your trait, reclaim your energy, and design a life that fits your nervous system.</p>
+    </div>
+    <div class="hsp-who__card">
+      <h3>Partners & parents</h3>
+      <p>Use scripts and exercises to communicate needs and foster deeper connection without overwhelm.</p>
+    </div>
+    <div class="hsp-who__card">
+      <h3>Therapists & coaches</h3>
+      <p>Give clients practical, research-grounded tools and language to honor sensitivity as strength.</p>
+    </div>
+  </div>
+</section>
+
+<section class="hsp-final-cta" id="pricing">
+  <div class="hsp-final-cta__content">
+    <div>
+      <p class="hsp-eyebrow">Choose calm today</p>
+      <h2>Welcome to a gentler way to thrive</h2>
+      <p>Gift yourself (or someone you love) the validation, language, and tools to navigate life with grace. Every copy includes a printable reflection worksheet.</p>
+      <div class="hsp-cta-group">
+        {% if product != blank and primary_variant %}
+          {% form 'product', product, id: 'final-buy-now' %}
+            <input type="hidden" name="id" value="{{ primary_variant.id }}">
+            <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary">Get the book</button>
+          {% endform %}
+        {% else %}
+          <a class="hsp-btn hsp-btn-primary" href="/products/{{ product_handle }}">Get the book</a>
+        {% endif %}
+        <p class="hsp-urgency">Order now for free U.S. shipping and instant bonus download.</p>
+      </div>
+    </div>
+    <div class="hsp-final-cta__image">
+      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" alt="The Highly Sensitive Person book with soft pastel background" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<div class="hsp-sticky-cta" id="hsp-sticky-cta">
+  {% if product != blank and primary_variant %}
+    {% form 'product', product, id: 'sticky-buy-now' %}
+      <input type="hidden" name="id" value="{{ primary_variant.id }}">
+      <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary hsp-btn-full">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
+    {% endform %}
+  {% else %}
+    <a class="hsp-btn hsp-btn-primary hsp-btn-full" href="/products/{{ product_handle }}">Buy Now — $17</a>
+  {% endif %}
+</div>
+
+<style>
+  :root {
+    --hsp-navy: #2f3c4f;
+    --hsp-lavender: #dcd7f8;
+    --hsp-mint: #d9f2ec;
+    --hsp-beige: #f6f1e9;
+    --hsp-soft-blue: #e4edf8;
+    --hsp-text: #2a2a2a;
+  }
+
+  .hsp-hero,
+  .hsp-pain,
+  .hsp-learn,
+  .hsp-testimonials,
+  .hsp-authority,
+  .hsp-who,
+  .hsp-final-cta {
+    padding: clamp(48px, 6vw, 96px) clamp(20px, 6vw, 72px);
+  }
+
+  .hsp-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: center;
+    gap: clamp(32px, 5vw, 64px);
+    background: linear-gradient(135deg, #f0f4ff, #f8f5ff);
+    border-radius: 28px;
+    margin: clamp(24px, 4vw, 48px) clamp(16px, 5vw, 48px);
+    box-shadow: 0 16px 40px rgba(47, 60, 79, 0.12);
+  }
+
+  .hsp-hero__copy h1 { font-size: clamp(28px, 4vw, 44px); margin-bottom: 12px; color: var(--hsp-text); }
+  .hsp-hero__copy .hsp-lede { font-size: 18px; line-height: 1.6; color: #3c3d4b; margin-bottom: 20px; }
+  .hsp-eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: #6d6da3; font-size: 12px; margin-bottom: 10px; }
+  .hsp-rating-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .hsp-pill { background: white; padding: 10px 14px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); font-weight: 600; color: #3a3b4f; }
+  .hsp-cta-group { display: grid; gap: 10px; align-items: start; }
+  .hsp-btn { border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 14px 22px; border-radius: 12px; font-weight: 700; transition: transform 0.15s ease, box-shadow 0.15s ease; font-size: 16px; }
+  .hsp-btn-primary { background: linear-gradient(135deg, #7aaed6, #9bb9ff); color: #0f254f; box-shadow: 0 12px 30px rgba(122, 174, 214, 0.35); }
+  .hsp-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(122, 174, 214, 0.45); }
+  .hsp-btn-full { width: 100%; }
+  .hsp-urgency { font-size: 14px; color: #445063; }
+  .hsp-badges { display: grid; gap: 6px; font-size: 14px; color: #2f3c4f; }
+  .hsp-hero__image { position: relative; }
+  .hsp-hero__image img { width: min(420px, 100%); border-radius: 24px; box-shadow: 0 14px 36px rgba(47, 60, 79, 0.25); }
+  .hsp-countdown { position: absolute; bottom: -20px; right: 10px; background: white; border-radius: 18px; padding: 16px 18px; box-shadow: 0 12px 30px rgba(0,0,0,0.12); text-align: center; min-width: 200px; }
+  .hsp-countdown__timer { font-size: 22px; font-weight: 700; color: #39496a; }
+  .hsp-subtle { color: #51607a; font-size: 13px; margin-top: 4px; }
+
+  .hsp-reviews { padding: 24px clamp(20px, 6vw, 72px); }
+  .hsp-reviews__bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; background: linear-gradient(135deg, #e6f2ff, #f5efff); border-radius: 18px; padding: 18px 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.7); }
+  .hsp-review-score { text-align: center; color: #30405a; }
+  .hsp-review-score strong { display: block; font-size: 22px; }
+
+  .hsp-section-heading { text-align: center; margin-bottom: 28px; }
+  .hsp-section-heading h2 { font-size: clamp(24px, 3vw, 36px); color: var(--hsp-text); margin: 6px 0 0; }
+
+  .hsp-pain__grid, .hsp-learn__list, .hsp-testimonials__grid, .hsp-who__grid { display: grid; gap: 18px; }
+  .hsp-pain__grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .hsp-pain__card { background: linear-gradient(160deg, #f6f1e9, #edf6ff); padding: 20px; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,0.05); }
+  .hsp-pain__card h3 { margin-bottom: 10px; color: #2f3c4f; }
+  .hsp-pain__card p { color: #414c5d; line-height: 1.6; }
+
+  .hsp-learn { background: linear-gradient(135deg, rgba(217, 242, 236, 0.6), rgba(220, 215, 248, 0.6)); border-radius: 28px; margin: 0 clamp(16px, 5vw, 48px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+  .hsp-learn__list { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .hsp-learn__item { background: white; padding: 16px 18px; border-radius: 14px; color: #2b3040; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+
+  .hsp-testimonials__grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .hsp-testimonial { background: #fff; border-radius: 16px; padding: 18px; box-shadow: 0 12px 28px rgba(0,0,0,0.06); border: 1px solid rgba(86, 108, 139, 0.08); }
+  .hsp-quote { font-size: 16px; line-height: 1.5; color: #2c3242; margin-bottom: 12px; }
+  .hsp-author { font-weight: 700; color: #4d5a70; }
+
+  .hsp-authority { background: linear-gradient(120deg, #f6f1e9, #e8f4ff); border-radius: 28px; margin: 0 clamp(16px, 5vw, 48px); }
+  .hsp-authority__content { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; align-items: center; }
+  .hsp-bullets { list-style: disc; padding-left: 20px; color: #2f3c4f; line-height: 1.6; }
+  .hsp-authority__image img { width: 100%; max-width: 340px; border-radius: 20px; box-shadow: 0 14px 36px rgba(0,0,0,0.12); }
+
+  .hsp-who__grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .hsp-who__card { background: linear-gradient(150deg, #e4edf8, #d9f2ec); padding: 18px; border-radius: 16px; color: #2d3b52; box-shadow: 0 10px 24px rgba(0,0,0,0.05); }
+  .hsp-who__card h3 { margin-bottom: 8px; }
+
+  .hsp-final-cta { background: linear-gradient(135deg, #dcd7f8, #e4edf8); border-radius: 28px; margin: clamp(24px, 4vw, 48px) clamp(16px, 5vw, 48px); }
+  .hsp-final-cta__content { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; align-items: center; }
+  .hsp-final-cta__image img { width: 100%; max-width: 360px; border-radius: 22px; box-shadow: 0 16px 38px rgba(0,0,0,0.15); }
+
+  .hsp-sticky-cta { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); width: min(480px, calc(100% - 32px)); background: white; border-radius: 16px; box-shadow: 0 14px 34px rgba(0,0,0,0.16); padding: 12px; z-index: 20; }
+
+  @media (max-width: 720px) {
+    .hsp-hero__image { order: -1; text-align: center; }
+    .hsp-countdown { position: relative; margin: 12px auto 0; right: auto; bottom: auto; }
+  }
+</style>
+
+<script>
+  (function() {
+    const timer = document.getElementById('hsp-countdown-timer');
+    if (!timer) return;
+    const container = timer.closest('[data-countdown-hours]');
+    const hours = parseInt(container?.dataset?.countdownHours || '48', 10);
+    const endTime = Date.now() + hours * 60 * 60 * 1000;
+
+    function updateCountdown() {
+      const remaining = endTime - Date.now();
+      if (remaining <= 0) {
+        timer.textContent = '00:00:00';
+        return;
+      }
+      const hrs = Math.floor(remaining / 1000 / 60 / 60);
+      const mins = Math.floor((remaining / 1000 / 60) % 60);
+      const secs = Math.floor((remaining / 1000) % 60);
+      timer.textContent = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Highly Sensitive Person Landing",
+  "settings": [
+    { "type": "text", "id": "product_handle", "label": "Product handle", "default": "the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you" },
+    { "type": "text", "id": "hero_title", "label": "Hero title", "default": "The Highly Sensitive Person: How to Thrive When the World Overwhelms You" },
+    { "type": "text", "id": "hero_subtitle", "label": "Hero subtitle", "default": "Calm, research-backed tools for Highly Sensitive People" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image", "default": "https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Buy Now" },
+    { "type": "text", "id": "cta_subtext", "label": "CTA subtext", "default": "Free U.S. shipping · 30-day returns" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#7aaed6" },
+    { "type": "color", "id": "background_top", "label": "Background gradient start", "default": "#f0f4ff" },
+    { "type": "color", "id": "background_bottom", "label": "Background gradient end", "default": "#f8f5ff" }
+  ],
+  "presets": [
+    { "name": "Highly Sensitive Person Landing" }
+  ]
+}
+{% endschema %}
