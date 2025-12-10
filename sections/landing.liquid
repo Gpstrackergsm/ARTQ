@@ -18,7 +18,7 @@
           <button type="submit" name="checkout" class="btn btn-primary">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
         {% endform %}
       {% else %}
-        <a class="btn btn-primary" href="/products/{{ product_handle }}">Buy Now — $29</a>
+        <a class="btn btn-primary" href="/checkout">Buy Now — $29</a>
       {% endif %}
       <p class="urgency">Instant digital access · No shipping required · 30-day satisfaction promise</p>
       <div class="badges">
@@ -130,7 +130,7 @@
           <button type="submit" name="checkout" class="btn btn-primary btn-full">Start reading today</button>
         {% endform %}
       {% else %}
-        <a class="btn btn-primary btn-full" href="/products/{{ product_handle }}">Start reading today</a>
+        <a class="btn btn-primary btn-full" href="/checkout">Start reading today</a>
       {% endif %}
       <p class="urgency">Bonus worksheet included for orders placed before the timer ends.</p>
     </div>
@@ -243,7 +243,7 @@
         <button type="submit" name="checkout" class="btn btn-primary">Get the book</button>
       {% endform %}
     {% else %}
-      <a class="btn btn-primary" href="/products/{{ product_handle }}">Get the book</a>
+      <a class="btn btn-primary" href="/checkout">Get the book</a>
     {% endif %}
   </div>
 </section>
@@ -264,6 +264,6 @@
       <button type="submit" name="checkout" class="btn btn-primary btn-full">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
     {% endform %}
   {% else %}
-    <a class="btn btn-primary btn-full" href="/products/{{ product_handle }}">Buy Now — $29</a>
+    <a class="btn btn-primary btn-full" href="/checkout">Buy Now — $29</a>
   {% endif %}
 </div>
