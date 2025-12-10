@@ -18,11 +18,11 @@
           <button type="submit" name="checkout" class="btn btn-primary">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
         {% endform %}
       {% else %}
-        <a class="btn btn-primary" href="/products/{{ product_handle }}">Buy Now — $17</a>
+        <a class="btn btn-primary" href="/products/{{ product_handle }}">Buy Now — $29</a>
       {% endif %}
-      <p class="urgency">Free U.S. shipping · Ships in 24 hours · 30-day returns</p>
+      <p class="urgency">Instant digital access · No shipping required · 30-day satisfaction promise</p>
       <div class="badges">
-        <span>✔ Paperback + Kindle available</span>
+        <span>✔ Read on any device</span>
         <span>✔ Includes self-assessment tools</span>
         <span>✔ Trusted by therapists & readers</span>
       </div>
@@ -118,10 +118,10 @@
     <div>
       <p class="eyebrow">Bundle & save</p>
       <div class="price-row">
-        <span class="price">{{ primary_variant.price | money_without_trailing_zeros | default: '$17' }}</span>
-        <span class="compare">$22</span>
+        <span class="price">{{ primary_variant.price | money_without_trailing_zeros | default: '$29' }}</span>
+        <span class="compare">$39</span>
       </div>
-      <p class="subtle">Ships carbon-neutral with a printable reflection worksheet.</p>
+      <p class="subtle">Instant digital download plus a printable reflection worksheet.</p>
     </div>
     <div class="cta-group">
       {% if product != blank and primary_variant %}
@@ -140,7 +140,7 @@
 <section class="trust">
   <div class="trust__badges">
     <div class="badge">🧭 Therapist-recommended guidance</div>
-    <div class="badge">📦 Free tracked U.S. shipping</div>
+    <div class="badge">💻 Instant digital access</div>
     <div class="badge">↩️ 30-day satisfaction promise</div>
     <div class="badge">💬 Supportive human help</div>
   </div>
@@ -148,17 +148,17 @@
 
 <section class="shipping-returns">
   <div class="section-heading">
-    <p class="eyebrow">Logistics</p>
-    <h3>Shipping & Returns</h3>
+    <p class="eyebrow">Access</p>
+    <h3>Delivery & Returns</h3>
   </div>
   <div class="shipping-returns__grid">
     <div>
-      <h4>Fast, gentle delivery</h4>
-      <p>Paperback copies ship within one business day in protective, plastic-free packaging. Digital editions arrive instantly via email.</p>
+      <h4>Instant, gentle delivery</h4>
+      <p>Receive your digital copy immediately after checkout—no shipping, no waiting, just download and start reading.</p>
     </div>
     <div>
       <h4>Rest-easy guarantee</h4>
-      <p>Take 30 days to read and reflect. If it’s not the support you hoped for, return it for a full refund—no questions asked.</p>
+      <p>Take 30 days to read and reflect. If it’s not the support you hoped for, request a full refund—no questions asked.</p>
     </div>
   </div>
 </section>
@@ -248,6 +248,6 @@
       <button type="submit" name="checkout" class="btn btn-primary btn-full">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
     {% endform %}
   {% else %}
-    <a class="btn btn-primary btn-full" href="/products/{{ product_handle }}">Buy Now — $17</a>
+    <a class="btn btn-primary btn-full" href="/products/{{ product_handle }}">Buy Now — $29</a>
   {% endif %}
 </div>
