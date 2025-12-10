@@ -1,11 +1,16 @@
-{% assign product_handle = settings.product_handle | default: 'handmade-artistic-fruit-stand-functional-design-for-modern-homes' %}
+{% assign product_handle = settings.product_handle | default: 'the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you' %}
 {% assign product = all_products[product_handle] %}
 {% assign primary_variant = product.selected_or_first_available_variant %}
 <section class="hero" id="top">
   <div class="hero__copy">
-    <p class="eyebrow">Limited Release</p>
-    <h1>Handmade Artistic Fruit Stand — Functional Design for Modern Homes</h1>
-    <p class="lede">Sculptural lines, hand-finished metal, and a balanced silhouette that elevates any countertop.</p>
+    <p class="eyebrow">National Bestseller · Psychology Classic</p>
+    <h1>The Highly Sensitive Person: How to Thrive When the World Overwhelms You</h1>
+    <p class="lede">Dr. Elaine Aron’s compassionate handbook shows Highly Sensitive People how to honor their trait, set gentle boundaries, and design a life that feels calm, meaningful, and connected.</p>
+    <div class="rating-row">
+      <span class="pill">⭐ 4.5/5 from 10,498 readers</span>
+      <span class="pill">3.8 on Goodreads · 53,848 ratings</span>
+      <span class="pill">Updated research + new author note</span>
+    </div>
     <div class="cta-group">
       {% if product != blank and primary_variant %}
         {% form 'product', product, id: 'hero-buy-now' %}
@@ -13,21 +18,22 @@
           <button type="submit" name="checkout" class="btn btn-primary">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
         {% endform %}
       {% else %}
-        <a class="btn btn-primary" href="/products/{{ product_handle }}">Buy Now — $49</a>
+        <a class="btn btn-primary" href="/products/{{ product_handle }}">Buy Now — $17</a>
       {% endif %}
-      <p class="urgency">Only 12 units left • free carbon-neutral shipping</p>
+      <p class="urgency">Free U.S. shipping · Ships in 24 hours · 30-day returns</p>
       <div class="badges">
-        <span>✔ Free shipping</span>
-        <span>✔ 30-day returns</span>
-        <span>✔ Secure checkout</span>
+        <span>✔ Paperback + Kindle available</span>
+        <span>✔ Includes self-assessment tools</span>
+        <span>✔ Trusted by therapists & readers</span>
       </div>
     </div>
   </div>
   <div class="hero__image">
-    <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/IMG_1752.jpg?v=1765054741" alt="Handmade Artistic Fruit Stand" loading="eager">
+    <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" alt="Cover of The Highly Sensitive Person book" loading="eager">
     <div class="countdown" data-countdown-hours="48">
-      <p>Launch savings end in</p>
+      <p>Limited-time bonus</p>
       <div class="countdown__timer" id="countdown-timer">48:00:00</div>
+      <p class="subtle">Get a free reflection worksheet with your order</p>
     </div>
   </div>
 </section>
@@ -35,13 +41,22 @@
 <section class="summary">
   <div class="summary__grid">
     <div>
-      <h2>Designed to elevate daily rituals</h2>
-      <p>Handcrafted from premium metal and sealed with a satin clear coat for a warm, modern sheen.</p>
+      <h2>A gentle roadmap for sensitive nervous systems</h2>
+      <p>Discover whether you’re an HSP, learn how to regulate overstimulation, and reframe your sensitivity as a strength. This updated edition blends science, stories, and practical scripts you can use immediately.</p>
     </div>
-    <div>
-      <p class="stat">79 → <strong>$49</strong> launch price</p>
-      <p class="stat">One-click checkout enabled</p>
-      <p class="stat">Ships within 24 hours</p>
+    <div class="stat-cards">
+      <div class="stat-card">
+        <p class="stat-label">Inside the book</p>
+        <p class="stat">Self-tests, coping plans, relationship scripts</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Formats</p>
+        <p class="stat">Paperback, Kindle, and audiobook friendly</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Who it helps</p>
+        <p class="stat">HSPs, partners, parents, therapists, and team leads</p>
+      </div>
     </div>
   </div>
 </section>
@@ -49,51 +64,51 @@
 <section class="features">
   <div class="section-heading">
     <p class="eyebrow">Highlights</p>
-    <h3>Functional art built to last</h3>
+    <h3>Thrive with tools tailored to Highly Sensitive People</h3>
   </div>
   <div class="features__list">
     <div class="feature-card">
-      <h4>Balanced, airy geometry</h4>
-      <p>Open tiers keep fruit ventilated and crisp while showing off colorful produce like a gallery piece.</p>
+      <h4>Self-assessments that clarify your needs</h4>
+      <p>Guided questionnaires reveal where you’re most sensitive—crowds, deadlines, relationships—so you can plan smarter recovery time.</p>
     </div>
     <div class="feature-card">
-      <h4>Hand-finished texture</h4>
-      <p>Each stand is individually finished for a subtle, tactile surface that feels luxurious to the touch.</p>
+      <h4>Calm-first daily playbook</h4>
+      <p>Step-by-step routines for morning, work, and evening help you prevent overwhelm before it starts and recover gracefully when it arrives.</p>
     </div>
     <div class="feature-card">
-      <h4>Space-smart footprint</h4>
-      <p>Tall, vertical silhouette saves counter space yet holds a full week of fruit for a busy home.</p>
+      <h4>Relationship scripts that build understanding</h4>
+      <p>Shareable language to explain your trait to partners, friends, and managers so they see your depth as an asset—not a flaw.</p>
     </div>
   </div>
 </section>
 
-<section class="lifestyle" style="background-image:url('https://cdn.shopify.com/s/files/1/0989/7020/6389/files/IMG_1752.jpg?v=1765054741');">
+<section class="lifestyle" style="background-image:linear-gradient(135deg, rgba(68,63,102,0.88), rgba(158,145,205,0.82)), url('https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942');">
   <div class="lifestyle__overlay">
-    <h3>Sculptural presence in any kitchen</h3>
-    <p>Neutral tones pair with marble, oak, and stainless steel so the stand feels tailor-made for your space.</p>
+    <h3>Science-backed and heart-forward</h3>
+    <p>Dr. Elaine Aron, a psychologist and HSP herself, draws from decades of research and hundreds of interviews to turn sensitivity into a superpower you can nurture.</p>
   </div>
 </section>
 
 <section class="gallery">
   <div class="section-heading">
-    <p class="eyebrow">Photo gallery</p>
-    <h3>Styled views from every angle</h3>
+    <p class="eyebrow">Inside the pages</p>
+    <h3>Designed to be read slowly, savored often</h3>
   </div>
   <div class="gallery__grid">
     <figure class="gallery__item">
-      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/IMG_1767.jpg?v=1765067211" alt="Handmade fruit stand on a kitchen island">
+      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" alt="Book cover on a soft lavender background">
     </figure>
     <figure class="gallery__item">
-      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/IMG_1752_b4afd076-b373-434c-adac-8bf685688f5a.jpg?v=1765067202" alt="Close-up of the fruit stand tiers">
+      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" alt="Close-up of the book spine with calming colors">
     </figure>
     <figure class="gallery__item">
-      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/IMG_1760.jpg?v=1765067202" alt="Fruit stand styled with fresh produce">
+      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" alt="The Highly Sensitive Person resting beside tea and headphones">
     </figure>
     <figure class="gallery__item">
-      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/IMG_1749.jpg?v=1765067196" alt="Side profile showing sculptural lines">
+      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" alt="Tabletop scene highlighting the book's cover art">
     </figure>
     <figure class="gallery__item">
-      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/IMG_1755.jpg?v=1765067194" alt="Fruit stand styled on a countertop">
+      <img src="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942" alt="Book beside a notebook and pen ready for reflection">
     </figure>
   </div>
 </section>
@@ -101,33 +116,33 @@
 <section class="pricing" id="pricing">
   <div class="pricing__card">
     <div>
-      <p class="eyebrow">Special launch offer</p>
+      <p class="eyebrow">Bundle & save</p>
       <div class="price-row">
-        <span class="price">$49</span>
-        <span class="compare">$79</span>
+        <span class="price">{{ primary_variant.price | money_without_trailing_zeros | default: '$17' }}</span>
+        <span class="compare">$22</span>
       </div>
-      <p class="subtle">Free shipping + 30-day money-back guarantee</p>
+      <p class="subtle">Ships carbon-neutral with a printable reflection worksheet.</p>
     </div>
     <div class="cta-group">
       {% if product != blank and primary_variant %}
         {% form 'product', product, id: 'pricing-buy-now' %}
           <input type="hidden" name="id" value="{{ primary_variant.id }}">
-          <button type="submit" name="checkout" class="btn btn-primary btn-full">Buy Now</button>
+          <button type="submit" name="checkout" class="btn btn-primary btn-full">Start reading today</button>
         {% endform %}
       {% else %}
-        <a class="btn btn-primary btn-full" href="/products/{{ product_handle }}">Buy Now</a>
+        <a class="btn btn-primary btn-full" href="/products/{{ product_handle }}">Start reading today</a>
       {% endif %}
-      <p class="urgency">Selling quickly — restock in 4 weeks</p>
+      <p class="urgency">Bonus worksheet included for orders placed before the timer ends.</p>
     </div>
   </div>
 </section>
 
 <section class="trust">
   <div class="trust__badges">
-    <div class="badge">🚚 Free insured shipping</div>
-    <div class="badge">💳 Secure checkout</div>
-    <div class="badge">↩️ 30-day returns</div>
-    <div class="badge">💬 Real human support</div>
+    <div class="badge">🧭 Therapist-recommended guidance</div>
+    <div class="badge">📦 Free tracked U.S. shipping</div>
+    <div class="badge">↩️ 30-day satisfaction promise</div>
+    <div class="badge">💬 Supportive human help</div>
   </div>
 </section>
 
@@ -138,12 +153,12 @@
   </div>
   <div class="shipping-returns__grid">
     <div>
-      <h4>Fast, free delivery</h4>
-      <p>We ship from US-based facilities within one business day. Tracking and insurance included.</p>
+      <h4>Fast, gentle delivery</h4>
+      <p>Paperback copies ship within one business day in protective, plastic-free packaging. Digital editions arrive instantly via email.</p>
     </div>
     <div>
-      <h4>30-day guarantee</h4>
-      <p>Not the right fit? Send it back within 30 days for a full refund. We cover defects, dents, or finish issues.</p>
+      <h4>Rest-easy guarantee</h4>
+      <p>Take 30 days to read and reflect. If it’s not the support you hoped for, return it for a full refund—no questions asked.</p>
     </div>
   </div>
 </section>
@@ -155,56 +170,64 @@
   </div>
   <div class="faq__items">
     <details open>
-      <summary>Will the stand scratch countertops?</summary>
-      <p>Each base includes soft feet to keep surfaces safe and stable on marble, quartz, or wood.</p>
+      <summary>Is this book only for people who already know they’re HSPs?</summary>
+      <p>No. The opening chapters include self-tests to help you decide whether the trait resonates and how strongly you experience it.</p>
     </details>
     <details>
-      <summary>How do I clean it?</summary>
-      <p>Wipe with a damp cloth and dry immediately. Avoid abrasive pads to preserve the satin finish.</p>
+      <summary>Will it feel too “soft” if I’m not into self-help?</summary>
+      <p>The tone is warm but practical. Dr. Aron roots every strategy in research, brain science, and decades of clinical observation.</p>
     </details>
     <details>
-      <summary>Is assembly required?</summary>
-      <p>No tools needed. The stand arrives fully assembled and ready to style out of the box.</p>
+      <summary>How long is the book?</summary>
+      <p>Just under 300 pages, designed to read at your pace. Each chapter ends with short exercises so you can pause and integrate.</p>
     </details>
     <details>
-      <summary>What is the size?</summary>
-      <p>Approx. 14" tall with two tiers designed to hold a full household assortment of fruit.</p>
+      <summary>What if I’m buying this as a gift?</summary>
+      <p>Include a gift note at checkout. We’ll tuck it inside the front cover and leave out pricing details.</p>
     </details>
   </div>
 </section>
 
 <section class="reviews">
   <div class="section-heading">
-    <p class="eyebrow">Social proof</p>
-    <h3>Loved by design-minded homes</h3>
+    <p class="eyebrow">Reader love</p>
+    <h3>Stories from people who finally felt understood</h3>
   </div>
   <div class="reviews__grid">
     <article class="review">
-      <p class="quote">“Feels like a sculpture on my island. The airflow keeps citrus fresher longer.”</p>
-      <p class="author">— Mara L., interior stylist</p>
+      <p class="quote">“Great book to learn about yourself… taught me how to manage being hypersensitive.”</p>
+      <p class="author">— Trice Weston, Verified Purchase</p>
     </article>
     <article class="review">
-      <p class="quote">“Matches my matte black fixtures perfectly. Worth every penny.”</p>
-      <p class="author">— Daniel R., homeowner</p>
+      <p class="quote">“This may be the best book I have read in years. Smart, astute, science-based—and a wake-up call.”</p>
+      <p class="author">— A. Biggs, Kindle Reader</p>
     </article>
     <article class="review">
-      <p class="quote">“Bought two as gifts. Packaging is gorgeous and it arrives ready to display.”</p>
-      <p class="author">— Priya K., repeat customer</p>
+      <p class="quote">“COMPLETELY CHANGED OUR LIVES… and gave us a new-found sense of self-acceptance.”</p>
+      <p class="author">— Joy C., Paperback Reader</p>
+    </article>
+    <article class="review">
+      <p class="quote">“If you even think this may be true for you, the book answers your questions and helps you come to terms with things that have happened all your life.”</p>
+      <p class="author">— Linda Bates, Verified Purchase</p>
+    </article>
+    <article class="review">
+      <p class="quote">“Explains sensitivity as a strength. I wish every human being would read this book.”</p>
+      <p class="author">— Michael & Ashley, Kindle Readers</p>
     </article>
   </div>
 </section>
 
 <section class="final-cta">
   <div class="final-cta__content">
-    <h3>Bring gallery-worthy design to your kitchen</h3>
-    <p>Secure your limited release Handmade Artistic Fruit Stand before this batch sells out.</p>
+    <h3>Welcome to a gentler way to live</h3>
+    <p>Give yourself (or someone you love) the validation, language, and tools to navigate a loud world with grace.</p>
     {% if product != blank and primary_variant %}
       {% form 'product', product, id: 'final-buy-now' %}
         <input type="hidden" name="id" value="{{ primary_variant.id }}">
-        <button type="submit" name="checkout" class="btn btn-primary">Checkout now</button>
+        <button type="submit" name="checkout" class="btn btn-primary">Get the book</button>
       {% endform %}
     {% else %}
-      <a class="btn btn-primary" href="/products/{{ product_handle }}">Checkout now</a>
+      <a class="btn btn-primary" href="/products/{{ product_handle }}">Get the book</a>
     {% endif %}
   </div>
 </section>
@@ -225,6 +248,6 @@
       <button type="submit" name="checkout" class="btn btn-primary btn-full">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
     {% endform %}
   {% else %}
-    <a class="btn btn-primary btn-full" href="/products/{{ product_handle }}">Buy Now — $49</a>
+    <a class="btn btn-primary btn-full" href="/products/{{ product_handle }}">Buy Now — $17</a>
   {% endif %}
 </div>
