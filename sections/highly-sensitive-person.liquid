@@ -1,11 +1,18 @@
-{% assign product_handle = settings.product_handle | default: 'the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you' %}
-{% assign product = all_products[product_handle] %}
-{% assign primary_variant = product.selected_or_first_available_variant %}
-{% assign checkout_link = '/checkout' %}
+{% liquid
+  assign featured_product = product
 
-{% if product != blank and primary_variant %}
-  {% assign checkout_link = routes.cart_add_url | append: '?id=' | append: primary_variant.id | append: '&quantity=1&return_to=/checkout' %}
-{% endif %}
+  unless featured_product
+    assign product_handle = settings.product_handle | default: 'the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you'
+    assign featured_product = all_products[product_handle]
+  endunless
+
+  assign primary_variant = featured_product.selected_or_first_available_variant
+  assign checkout_link = '/checkout'
+
+  if featured_product != blank and primary_variant
+    assign checkout_link = routes.cart_add_url | append: '?id=' | append: primary_variant.id | append: '&quantity=1&return_to=/checkout'
+  endif
+%}
 
 <section class="hsp-hero" id="top">
   <div class="hsp-hero__copy">
@@ -18,8 +25,8 @@
       <span class="hsp-pill">Trusted by therapists & readers</span>
     </div>
     <div class="hsp-cta-group">
-      {% if product != blank and primary_variant %}
-        {% form 'product', product, id: 'hero-buy-now' %}
+      {% if featured_product != blank and primary_variant %}
+        {% form 'product', featured_product, id: 'hero-buy-now' %}
           <input type="hidden" name="id" value="{{ primary_variant.id }}">
           <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
         {% endform %}
@@ -176,8 +183,8 @@
       <h2>Welcome to a gentler way to thrive</h2>
       <p>Gift yourself (or someone you love) the validation, language, and tools to navigate life with grace. Every copy includes a printable reflection worksheet.</p>
       <div class="hsp-cta-group">
-        {% if product != blank and primary_variant %}
-          {% form 'product', product, id: 'final-buy-now' %}
+        {% if featured_product != blank and primary_variant %}
+          {% form 'product', featured_product, id: 'final-buy-now' %}
             <input type="hidden" name="id" value="{{ primary_variant.id }}">
             <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary">Get the book</button>
           {% endform %}
@@ -194,8 +201,8 @@
 </section>
 
 <div class="hsp-sticky-cta" id="hsp-sticky-cta">
-  {% if product != blank and primary_variant %}
-    {% form 'product', product, id: 'sticky-buy-now' %}
+  {% if featured_product != blank and primary_variant %}
+    {% form 'product', featured_product, id: 'sticky-buy-now' %}
       <input type="hidden" name="id" value="{{ primary_variant.id }}">
       <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary hsp-btn-full">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
     {% endform %}
