@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "main": {
+      "type": "highly-sensitive-person"
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
