@@ -1,6 +1,11 @@
 {% assign product_handle = settings.product_handle | default: 'the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you' %}
 {% assign product = all_products[product_handle] %}
 {% assign primary_variant = product.selected_or_first_available_variant %}
+{% assign checkout_link = '/checkout' %}
+
+{% if product != blank and primary_variant %}
+  {% assign checkout_link = routes.cart_add_url | append: '?id=' | append: primary_variant.id | append: '&quantity=1&return_to=/checkout' %}
+{% endif %}
 
 <section class="hsp-hero" id="top">
   <div class="hsp-hero__copy">
@@ -19,7 +24,7 @@
           <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
         {% endform %}
       {% else %}
-        <a class="hsp-btn hsp-btn-primary" href="/products/{{ product_handle }}">Buy Now — $17</a>
+        <a class="hsp-btn hsp-btn-primary" href="{{ checkout_link }}">Buy Now — $17</a>
       {% endif %}
       <p class="hsp-urgency">Free U.S. shipping · Ships in 24 hours · 30-day returns</p>
       <div class="hsp-badges">
@@ -177,7 +182,7 @@
             <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary">Get the book</button>
           {% endform %}
         {% else %}
-          <a class="hsp-btn hsp-btn-primary" href="/products/{{ product_handle }}">Get the book</a>
+          <a class="hsp-btn hsp-btn-primary" href="{{ checkout_link }}">Get the book</a>
         {% endif %}
         <p class="hsp-urgency">Order now for free U.S. shipping and instant bonus download.</p>
       </div>
@@ -195,7 +200,7 @@
       <button type="submit" name="checkout" class="hsp-btn hsp-btn-primary hsp-btn-full">Buy Now — {{ primary_variant.price | money_without_trailing_zeros }}</button>
     {% endform %}
   {% else %}
-    <a class="hsp-btn hsp-btn-primary hsp-btn-full" href="/products/{{ product_handle }}">Buy Now — $17</a>
+    <a class="hsp-btn hsp-btn-primary hsp-btn-full" href="{{ checkout_link }}">Buy Now — $17</a>
   {% endif %}
 </div>
 
