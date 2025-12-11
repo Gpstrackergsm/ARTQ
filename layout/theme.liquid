@@ -3,15 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  {%- assign default_title = 'The Highly Sensitive Person — Thrive When the World Overwhelms You' -%}
-  {%- assign default_description = 'Elaine Aron’s national bestseller for highly sensitive people: understand your trait, protect your energy, and create a life that fits.' -%}
+  {% liquid
+    assign default_title = 'Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR)'
+    assign default_description = 'The DSM-5-TR is the gold-standard reference from APA Publishing, updated with new diagnostic criteria, ICD-10-CM codes, and Prolonged Grief Disorder.'
+    assign default_handle = settings.product_handle | default: 'diagnostic-and-statistical-manual-of-mental-disorders-text-revision-dsm-5-tr-5th-edition'
+    assign meta_product = all_products[default_handle]
+    assign meta_image = 'https://cdn.shopify.com/static/images/placeholder-square.png'
+    assign meta_url = shop.url
+    assign primary_variant = nil
+
+    if meta_product
+      assign primary_variant = meta_product.selected_or_first_available_variant
+
+      if meta_product.title != blank
+        assign default_title = meta_product.title
+      endif
+
+      if meta_product.description != blank
+        assign default_description = meta_product.description | strip_html | truncate: 160
+      endif
+
+      if meta_product.url
+        assign meta_url = shop.url | append: meta_product.url
+      endif
+
+      if meta_product.featured_image
+        assign meta_image = meta_product.featured_image | image_url: width: 1200
+      endif
+    endif
+  %}
   <title>{{ default_title }}</title>
   <meta name="description" content="{{ default_description }}">
   <meta property="og:title" content="{{ default_title }}">
   <meta property="og:description" content="{{ default_description }}">
   <meta property="og:type" content="product">
-  <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942">
-  <meta property="og:url" content="{{ shop.url }}">
+  <meta property="og:image" content="{{ meta_image }}">
+  <meta property="og:url" content="{{ meta_url }}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="{{ 'favicon.svg' | asset_url }}" type="image/svg+xml">
   {{ 'theme.css' | asset_url | stylesheet_tag }}
@@ -22,17 +49,17 @@
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      "name": "The Highly Sensitive Person: How to Thrive When the World Overwhelms You",
-      "image": ["https://cdn.shopify.com/s/files/1/0989/7020/6389/files/81C1VUgFP_L._SL1500.jpg?v=1765371942"],
-      "description": "National bestseller by Dr. Elaine Aron with assessments, coping tools, and relationship guidance for highly sensitive people.",
-      "sku": "hsp-book-paperback",
-      "brand": {"@type": "Brand", "name": "Dr. Elaine Aron"},
+      "name": "{{ default_title }}",
+      "image": ["{{ meta_image }}"],
+      "description": "{{ default_description }}",
+      "sku": "{{ primary_variant.sku | default: 'dsm-5-tr' }}",
+      "brand": {"@type": "Brand", "name": "APA Publishing"},
       "offers": {
         "@type": "Offer",
         "priceCurrency": "USD",
-        "price": "17",
+        "price": "{{ primary_variant.price | default: 0 | divided_by: 100.0 }}",
         "availability": "http://schema.org/InStock",
-        "url": "{{ shop.url }}/products/the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you"
+        "url": "{{ meta_url }}"
       }
     }
   </script>

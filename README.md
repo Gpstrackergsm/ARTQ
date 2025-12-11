@@ -1,6 +1,6 @@
 # leafanoo-one-product
 
-A conversion-focused, single-product Shopify theme for Leafanoo. The home page is a landing page tailored for the psychology bestseller “The Highly Sensitive Person.”
+A conversion-focused, single-product Shopify theme for Leafanoo. The home page is a landing page tailored for the clinical reference “Diagnostic and Statistical Manual of Mental Disorders, Text Revision (DSM-5-TR).”
 
 ## Features
 - Hero-first layout with sticky mobile CTA and direct-to-checkout forms
