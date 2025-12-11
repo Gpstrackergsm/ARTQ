@@ -1,263 +1,143 @@
-<section class="gr-hero" id="top">
-  <div class="gr-topbar">
-    <div class="gr-logo">Leafanoo Reads</div>
-    <nav class="gr-nav">
-      <a href="#shelves">Home</a>
-      <a href="#community">Community</a>
-      <a href="#lists">Lists</a>
-      <a href="#genres">Browse</a>
-    </nav>
-    <form class="gr-search" role="search">
-      <label class="sr-only" for="gr-search-input">Search books</label>
-      <input id="gr-search-input" type="search" placeholder="Search books, authors, or lists">
-      <button type="submit">Search</button>
-    </form>
-    <div class="gr-auth">
-      <a href="/account/login" class="gr-link">Sign In</a>
-      <a href="#join" class="gr-btn gr-btn-primary">Join</a>
+{% liquid
+  assign psychology_collection = collections['all']
+  assign product_1 = psychology_collection.products[0]
+  assign product_2 = psychology_collection.products[1]
+
+  assign variant_1 = product_1.selected_or_first_available_variant
+  assign variant_2 = product_2.selected_or_first_available_variant
+
+  assign buy_now_1 = '/checkout'
+  assign buy_now_2 = '/checkout'
+
+  if product_1 and variant_1
+    assign buy_now_1 = routes.cart_add_url | append: '?id=' | append: variant_1.id | append: '&quantity=1&return_to=/checkout'
+  endif
+
+  if product_2 and variant_2
+    assign buy_now_2 = routes.cart_add_url | append: '?id=' | append: variant_2.id | append: '&quantity=1&return_to=/checkout'
+  endif
+%}
+
+<section class="psy-hero" id="top">
+  <div class="psy-hero__content">
+    <p class="psy-eyebrow">Psychology books for calm, clarity, and growth</p>
+    <h1>Nurture your mind with expert-led reading</h1>
+    <p class="psy-lede">Dive into the psychology classics readers trust to navigate sensitivity, anxiety, and everyday overwhelm. Every page is designed to help you feel understood and supported.</p>
+    <div class="psy-cta-row">
+      {% if product_1 and variant_1 %}
+        <a class="psy-btn psy-btn-primary" href="{{ buy_now_1 }}">Buy Now: {{ product_1.title }}</a>
+      {% endif %}
+      {% if product_2 and variant_2 %}
+        <a class="psy-btn psy-btn-secondary" href="{{ buy_now_2 }}">Buy Now: {{ product_2.title }}</a>
+      {% endif %}
     </div>
+    <p class="psy-trust">Free U.S. shipping · Secure checkout · Therapist-recommended titles</p>
   </div>
-  <div class="gr-hero__body">
-    <div class="gr-hero__copy">
-      <p class="gr-eyebrow">Welcome to your reading life</p>
-      <h1>Discover and share books you love</h1>
-      <p class="gr-lede">Track what you’re reading, organize your virtual shelves, and see recommendations shaped by readers who love the same stories you do.</p>
-      <div class="gr-cta-row">
-        <a class="gr-btn gr-btn-primary" href="#join">Create a free account</a>
-        <a class="gr-btn gr-btn-ghost" href="#shelves">Browse popular shelves</a>
-      </div>
-      <div class="gr-stats">
-        <div class="gr-stat">
-          <span class="gr-stat__number">175M</span>
-          <span class="gr-stat__label">readers</span>
+  <div class="psy-hero__badge">
+    <p>Curated by mental health coaches</p>
+    <p>Built for highly sensitive readers</p>
+  </div>
+</section>
+
+<section class="psy-grid" id="books">
+  <div class="psy-section__header">
+    <p class="psy-eyebrow">Featured in the shop</p>
+    <h2>Psychology bestsellers, ready to ship</h2>
+    <p class="psy-lede">Choose the book that meets you where you are. Each title includes simple exercises, reflection prompts, and science-backed guidance.</p>
+  </div>
+
+  <div class="psy-card__grid">
+    {% if product_1 %}
+      <article class="psy-card">
+        <div class="psy-card__image">
+          {% if product_1.featured_image %}
+            {{ product_1.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product_1.title }}
+          {% endif %}
         </div>
-        <div class="gr-stat">
-          <span class="gr-stat__number">2.6B</span>
-          <span class="gr-stat__label">books shelved</span>
+        <div class="psy-card__body">
+          <p class="psy-eyebrow">Emotional resilience</p>
+          <h3>{{ product_1.title }}</h3>
+          <p class="psy-card__copy">{{ product_1.description | strip_html | truncate: 180 }}</p>
+          {% if variant_1 %}
+            <p class="psy-price">{{ variant_1.price | money_without_trailing_zeros }}</p>
+          {% endif %}
+          <a class="psy-btn psy-btn-primary" href="{{ buy_now_1 }}">Buy Now</a>
         </div>
-        <div class="gr-stat">
-          <span class="gr-stat__number">90M</span>
-          <span class="gr-stat__label">reviews shared</span>
+      </article>
+    {% endif %}
+
+    {% if product_2 %}
+      <article class="psy-card">
+        <div class="psy-card__image">
+          {% if product_2.featured_image %}
+            {{ product_2.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product_2.title }}
+          {% endif %}
         </div>
-      </div>
+        <div class="psy-card__body">
+          <p class="psy-eyebrow">Calm & boundaries</p>
+          <h3>{{ product_2.title }}</h3>
+          <p class="psy-card__copy">{{ product_2.description | strip_html | truncate: 180 }}</p>
+          {% if variant_2 %}
+            <p class="psy-price">{{ variant_2.price | money_without_trailing_zeros }}</p>
+          {% endif %}
+          <a class="psy-btn psy-btn-primary" href="{{ buy_now_2 }}">Buy Now</a>
+        </div>
+      </article>
+    {% endif %}
+  </div>
+</section>
+
+<section class="psy-benefits" id="why">
+  <div class="psy-section__header">
+    <p class="psy-eyebrow">Why these books?</p>
+    <h2>Grounded in psychology, written for real life</h2>
+    <p class="psy-lede">Both titles are penned by trusted psychologists and coaches, blending research with relatable stories so you can apply every insight immediately.</p>
+  </div>
+  <div class="psy-benefits__grid">
+    <div class="psy-benefit">
+      <h3>Evidence-based tools</h3>
+      <p>Practical frameworks for managing overwhelm, regulating emotions, and building supportive routines.</p>
+      {% if product_1 %}<a class="psy-link" href="{{ buy_now_1 }}">Buy now</a>{% endif %}
     </div>
-    <div class="gr-hero__panel">
-      <div class="gr-panel__header">
-        <p class="gr-eyebrow">Your friends are reading</p>
-        <p class="gr-panel__subtitle">See updates as they happen</p>
-      </div>
-      <ul class="gr-activity">
-        <li>
-          <div>
-            <p class="gr-activity__title">The Midnight Library</p>
-            <p class="gr-activity__meta">Ava marked it as <strong>Read</strong> · ★★★★☆</p>
-          </div>
-          <a class="gr-link" href="#">View details</a>
-        </li>
-        <li>
-          <div>
-            <p class="gr-activity__title">Tomorrow, and Tomorrow, and Tomorrow</p>
-            <p class="gr-activity__meta">Ravi wants to read · in <span class="gr-tag">Fiction</span></p>
-          </div>
-          <a class="gr-link" href="#">Add to shelf</a>
-        </li>
-        <li>
-          <div>
-            <p class="gr-activity__title">Fourth Wing</p>
-            <p class="gr-activity__meta">Zara rated it ★★★★★ · 1 hour ago</p>
-          </div>
-          <a class="gr-link" href="#">See review</a>
-        </li>
-        <li>
-          <div>
-            <p class="gr-activity__title">A Court of Thorns and Roses</p>
-            <p class="gr-activity__meta">Elliot is reading · Chapter 12 of 55</p>
-          </div>
-          <a class="gr-link" href="#">Update progress</a>
-        </li>
-      </ul>
+    <div class="psy-benefit">
+      <h3>Gentle guidance</h3>
+      <p>Warm tone, clear steps, and exercises that respect sensitivity while encouraging progress.</p>
+      {% if product_2 %}<a class="psy-link" href="{{ buy_now_2 }}">Buy now</a>{% endif %}
+    </div>
+    <div class="psy-benefit">
+      <h3>Immediate support</h3>
+      <p>Order today and head straight to checkout—no endless browsing, just the resources you need.</p>
+      {% if product_1 %}<a class="psy-link" href="{{ buy_now_1 }}">Buy now</a>{% endif %}
     </div>
   </div>
 </section>
 
-<section class="gr-shelves" id="shelves">
-  <div class="gr-section__header">
+<section class="psy-guarantee" id="guarantee">
+  <div class="psy-guarantee__content">
     <div>
-      <p class="gr-eyebrow">Readers are raving about</p>
-      <h2>Popular this week</h2>
+      <p class="psy-eyebrow">Peace-of-mind purchase</p>
+      <h2>Secure checkout and fast delivery</h2>
+      <p>Both books ship quickly, include easy returns, and lead you straight to a calmer nervous system. Click any button to head directly to checkout.</p>
     </div>
-    <a class="gr-link" href="#">See all trending</a>
-  </div>
-  <div class="gr-shelf__grid">
-    <article class="gr-card">
-      <div class="gr-card__image" style="background-image:url('https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=400&q=80');"></div>
-      <div class="gr-card__body">
-        <h3>The Seven Husbands of Evelyn Hugo</h3>
-        <p class="gr-card__meta">Fiction · 4.43 avg rating</p>
-        <p class="gr-card__desc">A legendary Hollywood icon shares her ruthless rise to fame and the loves that defined her.</p>
-        <div class="gr-card__actions">
-          <a class="gr-btn gr-btn-primary" href="#">Want to Read</a>
-          <a class="gr-btn gr-btn-ghost" href="#">Preview</a>
-        </div>
-      </div>
-    </article>
-    <article class="gr-card">
-      <div class="gr-card__image" style="background-image:url('https://images.unsplash.com/photo-1471109880861-75cec67f8b68?auto=format&fit=crop&w=400&q=80');"></div>
-      <div class="gr-card__body">
-        <h3>Lessons in Chemistry</h3>
-        <p class="gr-card__meta">Historical Fiction · 4.35 avg rating</p>
-        <p class="gr-card__desc">A brilliant chemist turned TV host sparks a movement for women who refuse to shrink.</p>
-        <div class="gr-card__actions">
-          <a class="gr-btn gr-btn-primary" href="#">Want to Read</a>
-          <a class="gr-btn gr-btn-ghost" href="#">Preview</a>
-        </div>
-      </div>
-    </article>
-    <article class="gr-card">
-      <div class="gr-card__image" style="background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=400&q=80');"></div>
-      <div class="gr-card__body">
-        <h3>Happy Place</h3>
-        <p class="gr-card__meta">Romance · 4.15 avg rating</p>
-        <p class="gr-card__desc">Former fiancés fake their relationship during a final friend getaway at their beloved cottage.</p>
-        <div class="gr-card__actions">
-          <a class="gr-btn gr-btn-primary" href="#">Want to Read</a>
-          <a class="gr-btn gr-btn-ghost" href="#">Preview</a>
-        </div>
-      </div>
-    </article>
-    <article class="gr-card">
-      <div class="gr-card__image" style="background-image:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=400&q=80');"></div>
-      <div class="gr-card__body">
-        <h3>Fourth Wing</h3>
-        <p class="gr-card__meta">Fantasy · 4.63 avg rating</p>
-        <p class="gr-card__desc">A reluctant dragon rider fights to survive a deadly war college and a dangerous bond.</p>
-        <div class="gr-card__actions">
-          <a class="gr-btn gr-btn-primary" href="#">Want to Read</a>
-          <a class="gr-btn gr-btn-ghost" href="#">Preview</a>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="gr-community" id="community">
-  <div class="gr-section__header">
-    <div>
-      <p class="gr-eyebrow">From your network</p>
-      <h2>Community updates</h2>
-    </div>
-    <a class="gr-link" href="#">See more activity</a>
-  </div>
-  <div class="gr-community__grid">
-    <div class="gr-update">
-      <p class="gr-update__label">Review by Dani · ★★★★☆</p>
-      <h3>Yellowface</h3>
-      <p class="gr-update__text">“Unputdownable satire about ambition, authorship, and the stories we claim. Couldn’t stop turning pages.”</p>
-      <a class="gr-link" href="#">Read full review</a>
-    </div>
-    <div class="gr-update">
-      <p class="gr-update__label">Quote from Matt</p>
-      <h3>The Anthropocene Reviewed</h3>
-      <p class="gr-update__text">“We all know how loving ends. But I want to fall in love with the world anyway, to let it crack me open.”</p>
-      <a class="gr-link" href="#">Save quote</a>
-    </div>
-    <div class="gr-update">
-      <p class="gr-update__label">List by Celeste</p>
-      <h3>Books that feel like warm light</h3>
-      <p class="gr-update__text">Cozy, compassionate reads for slow weekends: from Anne of Green Gables to Remarkably Bright Creatures.</p>
-      <a class="gr-link" href="#">Follow list</a>
+    <div class="psy-guarantee__actions">
+      {% if product_1 and variant_1 %}
+        <a class="psy-btn psy-btn-primary" href="{{ buy_now_1 }}">Buy Now: {{ product_1.title }}</a>
+      {% endif %}
+      {% if product_2 and variant_2 %}
+        <a class="psy-btn psy-btn-secondary" href="{{ buy_now_2 }}">Buy Now: {{ product_2.title }}</a>
+      {% endif %}
     </div>
   </div>
 </section>
 
-<section class="gr-lists" id="lists">
-  <div class="gr-section__header">
-    <div>
-      <p class="gr-eyebrow">Curated for you</p>
-      <h2>Discover lists you’ll love</h2>
-    </div>
-    <a class="gr-link" href="#">Browse all lists</a>
-  </div>
-  <div class="gr-list__grid">
-    <article class="gr-list">
-      <div>
-        <p class="gr-list__tag">Seasonal</p>
-        <h3>Big spring releases</h3>
-        <p class="gr-list__meta">15 titles · Fiction, memoir, rom-coms</p>
-      </div>
-      <a class="gr-btn gr-btn-primary" href="#">Add to shelves</a>
-    </article>
-    <article class="gr-list">
-      <div>
-        <p class="gr-list__tag">Award Winners</p>
-        <h3>Booker Prize finalists</h3>
-        <p class="gr-list__meta">12 titles · Critically acclaimed voices</p>
-      </div>
-      <a class="gr-btn gr-btn-primary" href="#">View list</a>
-    </article>
-    <article class="gr-list">
-      <div>
-        <p class="gr-list__tag">Community</p>
-        <h3>Can’t-stop-reading thrillers</h3>
-        <p class="gr-list__meta">20 titles · Perfect for book clubs</p>
-      </div>
-      <a class="gr-btn gr-btn-primary" href="#">See picks</a>
-    </article>
-  </div>
-</section>
-
-<section class="gr-genres" id="genres">
-  <div class="gr-section__header">
-    <div>
-      <p class="gr-eyebrow">Start exploring</p>
-      <h2>Browse by genre</h2>
-    </div>
-    <a class="gr-link" href="#">View all genres</a>
-  </div>
-  <div class="gr-genre__chips">
-    <span class="gr-tag">Fiction</span>
-    <span class="gr-tag">Mystery & Thriller</span>
-    <span class="gr-tag">Romance</span>
-    <span class="gr-tag">Fantasy</span>
-    <span class="gr-tag">Young Adult</span>
-    <span class="gr-tag">Historical</span>
-    <span class="gr-tag">Sci-Fi</span>
-    <span class="gr-tag">Graphic Novels</span>
-    <span class="gr-tag">Memoir</span>
-    <span class="gr-tag">Poetry</span>
-    <span class="gr-tag">Business</span>
-    <span class="gr-tag">Self-Help</span>
-  </div>
-</section>
-
-<section class="gr-cta" id="join">
-  <div class="gr-cta__content">
-    <div>
-      <p class="gr-eyebrow">Join free</p>
-      <h2>Track, rate, and review every book you read</h2>
-      <p class="gr-lede">See what your friends are reading, set a yearly reading challenge, and get recommendations tailored to your shelves.</p>
-    </div>
-    <div class="gr-cta__actions">
-      <a class="gr-btn gr-btn-primary" href="/account/register">Sign up with email</a>
-      <a class="gr-btn gr-btn-ghost" href="#top">Back to top</a>
-    </div>
-  </div>
-</section>
-
-<footer class="gr-footer">
-  <div class="gr-footer__links">
-    <a href="#">About</a>
-    <a href="#">Careers</a>
-    <a href="#">Help</a>
-    <a href="#">Terms</a>
-    <a href="#">Privacy</a>
-  </div>
-  <p class="gr-footer__note">Leafanoo Reads · Inspired by Goodreads</p>
+<footer class="psy-footer">
+  <p>Ready to feel calmer? Tap any button to purchase your psychology book now.</p>
+  {% if product_1 %}<a class="psy-btn psy-btn-primary" href="{{ buy_now_1 }}">Buy Now</a>{% endif %}
 </footer>
 
 {% schema %}
 {
-  "name": "Goodreads-style home",
+  "name": "Psychology books landing",
   "settings": []
 }
 {% endschema %}
