@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "highly-sensitive-person"
+      "type": "dsm-5-tr"
     }
   },
   "order": ["main"]
