@@ -1,0 +1,331 @@
+{% assign product_one = section.settings.product_1 %}
+{% assign product_two = section.settings.product_2 %}
+{% assign product_one_description = product_one.description | strip_html | truncatewords: 22, '…' %}
+{% assign product_two_description = product_two.description | strip_html | truncatewords: 22, '…' %}
+
+<style>
+  #psychology-home-{{ section.id }} {
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: #0D47A1;
+    background: #F5F7FA;
+  }
+
+  #psychology-home-{{ section.id }} .hero {
+    background: linear-gradient(135deg, #1A73E8 0%, #F5F7FA 60%);
+    color: #FFFFFF;
+    padding: 72px 24px;
+    border-radius: 24px;
+    box-shadow: 0 18px 36px rgba(13, 71, 161, 0.18);
+    display: grid;
+    gap: 16px;
+    text-align: center;
+  }
+
+  #psychology-home-{{ section.id }} .hero h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  #psychology-home-{{ section.id }} .hero p {
+    margin: 0;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  #psychology-home-{{ section.id }} .hero .cta {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 14px 26px;
+    background: #FFFFFF;
+    color: #0D47A1;
+    font-weight: 700;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(13, 71, 161, 0.16);
+    text-decoration: none;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+
+  #psychology-home-{{ section.id }} .hero .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 26px rgba(13, 71, 161, 0.2);
+  }
+
+  #psychology-home-{{ section.id }} .section-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+
+  #psychology-home-{{ section.id }} .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  #psychology-home-{{ section.id }} .product-card {
+    background: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 16px 32px rgba(13, 71, 161, 0.12);
+    overflow: hidden;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  #psychology-home-{{ section.id }} .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 38px rgba(13, 71, 161, 0.16);
+  }
+
+  #psychology-home-{{ section.id }} .product-media {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background: #E3E9F2;
+  }
+
+  #psychology-home-{{ section.id }} .product-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  #psychology-home-{{ section.id }} .product-content {
+    padding: 18px 18px 22px;
+    display: grid;
+    gap: 10px;
+  }
+
+  #psychology-home-{{ section.id }} .product-title {
+    margin: 0;
+    font-size: 20px;
+    color: #0D47A1;
+    font-weight: 700;
+  }
+
+  #psychology-home-{{ section.id }} .product-desc {
+    margin: 0;
+    font-size: 15px;
+    color: #2b4f7b;
+  }
+
+  #psychology-home-{{ section.id }} .product-price {
+    font-weight: 700;
+    color: #1A73E8;
+  }
+
+  #psychology-home-{{ section.id }} .product-actions a {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #1A73E8;
+    color: #FFFFFF;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 10px 18px rgba(26, 115, 232, 0.18);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  #psychology-home-{{ section.id }} .product-actions a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 24px rgba(26, 115, 232, 0.22);
+  }
+
+  #psychology-home-{{ section.id }} .benefits {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(13, 71, 161, 0.1);
+    padding: 24px;
+    margin: 56px 0 24px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  #psychology-home-{{ section.id }} .benefit-item {
+    display: grid;
+    gap: 8px;
+    align-items: start;
+    text-align: center;
+  }
+
+  #psychology-home-{{ section.id }} .benefit-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: rgba(26, 115, 232, 0.12);
+    display: grid;
+    place-items: center;
+    color: #1A73E8;
+    font-weight: 800;
+  }
+
+  #psychology-home-{{ section.id }} .benefit-title {
+    margin: 0;
+    font-weight: 700;
+    color: #0D47A1;
+  }
+
+  #psychology-home-{{ section.id }} .seo-block {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(13, 71, 161, 0.1);
+    padding: 32px;
+    margin-top: 32px;
+  }
+
+  #psychology-home-{{ section.id }} .seo-block h3 {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 800;
+    color: #0D47A1;
+  }
+
+  #psychology-home-{{ section.id }} .seo-block p {
+    margin: 0;
+    color: #2b4f7b;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    #psychology-home-{{ section.id }} .products-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #psychology-home-{{ section.id }} .benefits {
+      grid-template-columns: 1fr;
+    }
+
+    #psychology-home-{{ section.id }} .hero {
+      text-align: left;
+      padding: 56px 20px;
+    }
+  }
+</style>
+
+<section id="psychology-home-{{ section.id }}">
+  <div class="section-inner">
+    <div class="hero" id="hero">
+      <h1>{{ section.settings.hero_heading }}</h1>
+      <p>{{ section.settings.hero_subheading }}</p>
+      <a class="cta" href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a>
+    </div>
+
+    <div id="products" class="products-grid">
+      {% assign cards = 'first,second' | split: ',' %}
+      {% for item in cards %}
+        {% assign current_product = product_one %}
+        {% assign current_description = product_one_description %}
+        {% if forloop.index == 2 %}
+          {% assign current_product = product_two %}
+          {% assign current_description = product_two_description %}
+        {% endif %}
+        <article class="product-card">
+          <div class="product-media">
+            {% if current_product and current_product.featured_image %}
+              <a href="{{ current_product.url }}">
+                <img src="{{ current_product.featured_image | img_url: '720x' }}" alt="{{ current_product.title | escape }}">
+              </a>
+            {% else %}
+              <div style="position:absolute; inset:0; display:grid; place-items:center; color:#0D47A1; font-weight:700;">Psychology Workbook</div>
+            {% endif %}
+          </div>
+          <div class="product-content">
+            <h2 class="product-title">{{ current_product.title | default: "Clinical Skills Workbook" }}</h2>
+            <p class="product-desc">
+              {% if current_product %}
+                {{ current_description | default: "Structured exercises supporting cognitive behavioral interventions and session planning." }}
+              {% else %}
+                Comprehensive prompts, worksheets, and psychoeducation to strengthen therapeutic outcomes.
+              {% endif %}
+            </p>
+            <div class="product-price">
+              {% if current_product %}
+                {{ current_product.price | money }}
+              {% else %}
+                $48.00
+              {% endif %}
+            </div>
+            <div class="product-actions">
+              <a href="{{ current_product.url | default: '#' }}">View Details</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="benefits">
+      <div class="benefit-item">
+        <div class="benefit-icon">EB</div>
+        <p class="benefit-title">Evidence-Based Workbooks</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">DD</div>
+        <p class="benefit-title">Instant Digital Download</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">TH</div>
+        <p class="benefit-title">Trusted by Mental Health Professionals</p>
+      </div>
+    </div>
+
+    <div class="seo-block">
+      <h3>Why Mental Health Professionals Trust Our Resources</h3>
+      <p>
+        Developed in collaboration with licensed clinicians, our workbooks integrate structured psychoeducation, session-ready worksheets, and outcomes-tracking frameworks that align with cognitive-behavioral and trauma-informed modalities. Explore <a href="{{ product_one.url | default: '#' }}">{{ product_one.title | default: 'Workbook One' }}</a> for guided interventions and <a href="{{ product_two.url | default: '#' }}">{{ product_two.title | default: 'Workbook Two' }}</a> for advanced case formulation tools that keep care consistent, measurable, and evidence-driven.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Psychology Home",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Hero heading",
+      "default": "Professional Psychology Workbooks for Better Clinical Outcomes"
+    },
+    {
+      "type": "text",
+      "id": "hero_subheading",
+      "label": "Hero subheading",
+      "default": "Evidence-based tools trusted by therapists worldwide."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Browse Workbooks"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "product",
+      "id": "product_1",
+      "label": "Product 1"
+    },
+    {
+      "type": "product",
+      "id": "product_2",
+      "label": "Product 2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Psychology Home"
+    }
+  ]
+}
+{% endschema %}
