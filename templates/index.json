@@ -1,9 +1,9 @@
 {
   "sections": {
-    "catalog": {
-      "type": "all-products",
+    "home": {
+      "type": "goodreads-home",
       "settings": {}
     }
   },
-  "order": ["catalog"]
+  "order": ["home"]
 }
