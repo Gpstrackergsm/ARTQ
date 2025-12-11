@@ -31,7 +31,7 @@ A conversion-focused, single-product Shopify theme for Leafanoo. The home page i
 ```
 
 ## Product wiring
-- Default product handle: `the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you`
+- Default product handle: `diagnostic-and-statistical-manual-of-mental-disorders-text-revision-dsm-5-tr-5th-edition`
 - Price: **$29 USD** with compare-at **$39 USD**
 - Buy Now forms submit directly to checkout and include dynamic checkout buttons.
 
