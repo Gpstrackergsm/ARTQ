@@ -272,3 +272,25 @@
     <a class="btn btn-primary btn-full" href="{{ checkout_link }}">Buy Now — $29</a>
   {% endif %}
 </div>
+
+{% schema %}
+{
+  "name": "Landing",
+  "tag": "section",
+  "class": "landing-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_handle",
+      "label": "Product handle",
+      "default": "the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
