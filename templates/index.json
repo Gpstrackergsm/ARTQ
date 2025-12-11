@@ -1,9 +1,9 @@
 {
   "sections": {
-    "landing": {
-      "type": "landing",
+    "catalog": {
+      "type": "all-products",
       "settings": {}
     }
   },
-  "order": ["landing"]
+  "order": ["catalog"]
 }

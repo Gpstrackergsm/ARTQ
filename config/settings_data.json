@@ -1,13 +1,13 @@
 {
   "current": {
     "sections": {
-      "landing": {
-        "type": "landing",
+      "catalog": {
+        "type": "all-products",
         "settings": {}
       }
     },
     "order": [
-      "landing"
+      "catalog"
     ]
   }
 }

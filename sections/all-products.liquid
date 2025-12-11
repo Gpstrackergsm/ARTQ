@@ -1,0 +1,50 @@
+{% liquid
+  assign catalog = collections['all']
+%}
+
+<section class="catalog">
+  <div class="catalog__header">
+    <p class="eyebrow">Shop</p>
+    <h1>Explore all titles</h1>
+    <p class="lede">Browse every product available in our store and choose the one that fits you best.</p>
+  </div>
+
+  {% if catalog != blank and catalog.products_count > 0 %}
+    <div class="catalog__grid">
+      {% for product in catalog.products %}
+        {% assign primary_variant = product.selected_or_first_available_variant %}
+        <article class="catalog-card">
+          <a class="catalog-card__image" href="{{ product.url }}">
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: product.title }}
+            {% else %}
+              <div class="catalog-card__placeholder" aria-hidden="true">No image</div>
+            {% endif %}
+          </a>
+          <div class="catalog-card__body">
+            <h2 class="catalog-card__title">{{ product.title }}</h2>
+            <p class="catalog-card__excerpt">{{ product.description | strip_html | truncate: 140 }}</p>
+            {% if primary_variant %}
+              <p class="catalog-card__price">{{ primary_variant.price | money_without_trailing_zeros }}</p>
+            {% endif %}
+            <div class="catalog-card__actions">
+              <a class="btn btn-secondary" href="{{ product.url }}">View details</a>
+              {% if primary_variant and primary_variant.available %}
+                {% form 'product', product, class: 'catalog-card__form' %}
+                  <input type="hidden" name="id" value="{{ primary_variant.id }}">
+                  <button type="submit" name="add" class="btn">Add to cart</button>
+                {% endform %}
+              {% else %}
+                <span class="catalog-card__sold-out">Sold out</span>
+              {% endif %}
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="catalog__empty">
+      <p>No products available yet. Please check back soon.</p>
+    </div>
+  {% endif %}
+</section>
