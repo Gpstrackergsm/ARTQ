@@ -118,6 +118,205 @@ img { max-width: 100%; height: auto; display: block; }
 .summary__grid, .shipping-returns__grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
 .stat-cards { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 .stat-card { background: #fff; border-radius: var(--radius); padding: 1rem 1.1rem; box-shadow: 0 16px 30px rgba(0,0,0,0.08); border: 1px solid #efe2d6; }
+
+/* Psychology landing styles */
+.psy-hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  padding: 4rem 5vw 3rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(240, 227, 213, 0.9)),
+    radial-gradient(circle at 18% 18%, rgba(139, 85, 47, 0.1) 0, transparent 38%),
+    radial-gradient(circle at 82% 10%, rgba(176, 104, 57, 0.18) 0, transparent 32%);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.08);
+}
+
+.psy-hero__content h1 {
+  margin: 0.3rem 0 0.8rem;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+}
+
+.psy-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.psy-lede {
+  margin: 0 0 1.2rem;
+  color: var(--muted);
+  max-width: 40rem;
+}
+
+.psy-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.4rem 0 0.8rem;
+}
+
+.psy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.psy-btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+}
+
+.psy-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.14);
+}
+
+.psy-btn-secondary {
+  background: #fff7ef;
+  color: var(--accent);
+  border-color: rgba(139, 85, 47, 0.3);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.psy-btn-secondary:hover {
+  background: #f3e5d8;
+  transform: translateY(-2px);
+}
+
+.psy-trust {
+  color: var(--muted);
+  font-weight: 600;
+  margin: 0.4rem 0 0;
+}
+
+.psy-hero__badge {
+  align-self: start;
+  justify-self: end;
+  background: #fff;
+  padding: 1.2rem 1.4rem;
+  border-radius: var(--radius);
+  border: 1px solid #efe2d6;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  max-width: 280px;
+  font-weight: 700;
+}
+
+.psy-grid,
+.psy-benefits,
+.psy-guarantee,
+.psy-footer {
+  padding: 3rem 5vw;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.psy-section__header h2 {
+  margin: 0.4rem 0 0.6rem;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+}
+
+.psy-section__header .psy-lede { margin: 0; }
+
+.psy-card__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+}
+
+.psy-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid #efe2d6;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.psy-card__image img { width: 100%; height: auto; display: block; }
+
+.psy-card__body {
+  padding: 1.25rem 1.35rem 1.5rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.psy-card__body h3 { margin: 0; }
+
+.psy-card__copy { color: var(--muted); margin: 0; }
+
+.psy-price { font-weight: 700; font-size: 1.05rem; margin: 0.2rem 0 0.4rem; }
+
+.psy-benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem;
+  margin-top: 1.5rem;
+}
+
+.psy-benefit {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid #efe2d6;
+  padding: 1.2rem 1.35rem;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+}
+
+.psy-benefit h3 { margin: 0 0 0.4rem; }
+.psy-benefit p { margin: 0 0 0.6rem; color: var(--muted); }
+
+.psy-link {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.psy-guarantee__content {
+  background: #fff7ef;
+  border: 1px solid rgba(139, 85, 47, 0.18);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  align-items: center;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+}
+
+.psy-guarantee__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.psy-footer {
+  text-align: center;
+  border-top: 1px solid #eadfd2;
+  margin-top: 2rem;
+}
+
+.psy-footer p { margin: 0 0 1rem; font-weight: 600; }
+
+@media (max-width: 640px) {
+  .psy-hero { padding-top: 3rem; }
+  .psy-hero__badge { justify-self: stretch; }
+  .psy-cta-row { flex-direction: column; align-items: stretch; }
+  .psy-btn { width: 100%; text-align: center; }
+}
 .stat-label { text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-size: 0.78rem; margin: 0; }
 .stat { margin: 0.3rem 0; color: var(--muted); }
 
