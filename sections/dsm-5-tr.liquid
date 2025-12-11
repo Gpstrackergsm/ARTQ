@@ -1,0 +1,240 @@
+{% liquid
+  assign featured_product = product
+
+  unless featured_product
+    assign product_handle = settings.product_handle | default: 'diagnostic-and-statistical-manual-of-mental-disorders-text-revision-dsm-5-tr-5th-edition'
+    assign featured_product = all_products[product_handle]
+  endunless
+
+  assign primary_variant = featured_product.selected_or_first_available_variant
+  assign checkout_link = '/checkout'
+
+  if featured_product != blank and primary_variant
+    assign checkout_link = routes.cart_add_url | append: '?id=' | append: primary_variant.id | append: '&quantity=1&return_to=/checkout'
+  endif
+
+  assign hero_image = featured_product.featured_image
+%}
+
+<section class="dsm-hero" id="top">
+  <div class="dsm-hero__copy">
+    <p class="dsm-eyebrow">Clinical gold standard</p>
+    <h1>Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR)</h1>
+    <p class="dsm-lede">The most comprehensive, current, and critical resource for mental health clinicians and researchers—fully revised with updated diagnostic criteria, ICD-10-CM codes, and new guidance since 2013.</p>
+    <div class="dsm-pill-row">
+      <span class="dsm-pill">Prolonged Grief Disorder included</span>
+      <span class="dsm-pill">70+ clarified criteria sets</span>
+      <span class="dsm-pill">Updated ICD-10-CM codes</span>
+    </div>
+    <div class="dsm-cta-group">
+      {% if featured_product != blank and primary_variant %}
+        {% form 'product', featured_product, id: 'dsm-hero-buy-now' %}
+          <input type="hidden" name="id" value="{{ primary_variant.id }}">
+          <button type="submit" name="checkout" class="dsm-btn dsm-btn-primary">Order DSM-5-TR — {{ primary_variant.price | money_without_trailing_zeros }}</button>
+        {% endform %}
+      {% else %}
+        <a class="dsm-btn dsm-btn-primary" href="{{ checkout_link }}">Order DSM-5-TR</a>
+      {% endif %}
+      <p class="dsm-urgency">Ships fast · Trusted by clinicians across inpatient, outpatient, and research settings</p>
+      <div class="dsm-badges">
+        <span>✔ Cohesive diagnostic codes and criteria</span>
+        <span>✔ Four-color, authenticated printing</span>
+        <span>✔ Contributions from 200+ experts</span>
+      </div>
+    </div>
+  </div>
+  <div class="dsm-hero__image">
+    {% if hero_image %}
+      <img src="{{ hero_image | image_url: width: 800 }}" alt="DSM-5-TR cover" loading="eager">
+    {% else %}
+      <div class="dsm-hero__placeholder">DSM-5-TR</div>
+    {% endif %}
+    <div class="dsm-security">
+      <p class="dsm-eyebrow">Authenticity built in</p>
+      <p>Each printed copy includes a fiber-coded security sticker that verifies the manual through APA Publishing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dsm-overview">
+  <div class="dsm-section-heading">
+    <p class="dsm-eyebrow">Up-to-date guidance</p>
+    <h2>The definitive reference your practice depends on</h2>
+  </div>
+  <div class="dsm-overview__grid">
+    <article class="dsm-card">
+      <h3>Comprehensive revisions</h3>
+      <p>Fully revised text and references grounded in the latest scientific literature, curated by more than 200 subject matter experts.</p>
+    </article>
+    <article class="dsm-card">
+      <h3>Clarity across codes</h3>
+      <p>Integrates the latest ICD-10-CM updates, including over 50 new coding refinements for substance-related conditions and other disorders.</p>
+    </article>
+    <article class="dsm-card">
+      <h3>Aligned for real-world care</h3>
+      <p>Provides a cohesive language for clinicians in inpatient, outpatient, consultation-liaison, private practice, and primary care settings.</p>
+    </article>
+  </div>
+</section>
+
+<section class="dsm-updates">
+  <div class="dsm-section-heading">
+    <p class="dsm-eyebrow">What's new in DSM-5-TR</p>
+    <h2>Key additions and refinements</h2>
+  </div>
+  <div class="dsm-list">
+    <div class="dsm-list__item">Addition of Prolonged Grief Disorder (PGD) to Section II as a new disorder for diagnosis.</div>
+    <div class="dsm-list__item">More than 70 modified criteria sets with clarifications since DSM-5.</div>
+    <div class="dsm-list__item">Fully updated Introduction and Use of the Manual to contextualize terminology and usage.</div>
+    <div class="dsm-list__item">Considerations of the impact of racism and discrimination integrated across disorders.</div>
+    <div class="dsm-list__item">New codes to flag and monitor suicidal behavior, available without requiring another diagnosis.</div>
+    <div class="dsm-list__item">Redesigned diagnostic classification with refreshed four-color layout.</div>
+  </div>
+</section>
+
+<section class="dsm-practice">
+  <div class="dsm-practice__content">
+    <div>
+      <p class="dsm-eyebrow">Practical in every setting</p>
+      <h2>Built for clinicians, researchers, and educators</h2>
+      <ul class="dsm-bullets">
+        <li>Objective assessment of symptom presentations across diverse clinical environments.</li>
+        <li>Detailed updates on associated features, prevalence, development, prognostic factors, culture, markers, and differential diagnoses.</li>
+        <li>Applicable for psychologists, counselors, nurses, occupational and rehabilitation therapists, social workers, forensic experts, and more.</li>
+      </ul>
+    </div>
+    <div class="dsm-practice__note">
+      <h3>Verified authenticity</h3>
+      <p>Scan the embedded fiber-coded security sticker to confirm you have an official APA Publishing copy—part of ongoing efforts to prevent unlicensed reproductions.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dsm-final-cta" id="pricing">
+  <div class="dsm-final-cta__content">
+    <div>
+      <p class="dsm-eyebrow">Stay current</p>
+      <h2>Rely on DSM-5-TR for precise, modern diagnoses</h2>
+      <p>Equip your team with the unified criteria, codes, and clinical insights that keep patient care aligned with today’s standards.</p>
+      <div class="dsm-cta-group">
+        {% if featured_product != blank and primary_variant %}
+          {% form 'product', featured_product, id: 'dsm-final-buy-now' %}
+            <input type="hidden" name="id" value="{{ primary_variant.id }}">
+            <button type="submit" name="checkout" class="dsm-btn dsm-btn-primary">Add to cart</button>
+          {% endform %}
+        {% else %}
+          <a class="dsm-btn dsm-btn-primary" href="{{ checkout_link }}">Add to cart</a>
+        {% endif %}
+        <p class="dsm-urgency">Free U.S. shipping · 30-day returns · Secure checkout</p>
+      </div>
+    </div>
+    <div class="dsm-final-cta__card">
+      <h3>Inside this edition</h3>
+      <ul class="dsm-bullets">
+        <li>Updated diagnostic criteria and ICD-10-CM codes</li>
+        <li>New suicidal behavior codes for all disciplines</li>
+        <li>Fully revised text and references since 2013</li>
+        <li>Four-color design with authenticated printing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="dsm-sticky-cta" id="dsm-sticky-cta">
+  {% if featured_product != blank and primary_variant %}
+    {% form 'product', featured_product, id: 'dsm-sticky-buy-now' %}
+      <input type="hidden" name="id" value="{{ primary_variant.id }}">
+      <button type="submit" name="checkout" class="dsm-btn dsm-btn-primary dsm-btn-full">Order DSM-5-TR — {{ primary_variant.price | money_without_trailing_zeros }}</button>
+    {% endform %}
+  {% else %}
+    <a class="dsm-btn dsm-btn-primary dsm-btn-full" href="{{ checkout_link }}">Order DSM-5-TR</a>
+  {% endif %}
+</div>
+
+<style>
+  :root {
+    --dsm-navy: #21324a;
+    --dsm-blue: #5a8fdc;
+    --dsm-light: #eaf1fb;
+    --dsm-cream: #f3f6ff;
+    --dsm-text: #1f2a38;
+  }
+
+  .dsm-hero,
+  .dsm-overview,
+  .dsm-updates,
+  .dsm-practice,
+  .dsm-final-cta {
+    padding: clamp(48px, 6vw, 96px) clamp(20px, 6vw, 72px);
+  }
+
+  .dsm-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    align-items: center;
+    gap: clamp(32px, 5vw, 64px);
+    background: linear-gradient(135deg, #eef4ff, #f8fbff);
+    border-radius: 28px;
+    margin: clamp(24px, 4vw, 48px) clamp(16px, 5vw, 48px);
+    box-shadow: 0 16px 40px rgba(33, 50, 74, 0.12);
+  }
+
+  .dsm-hero__copy h1 { font-size: clamp(28px, 4vw, 44px); margin-bottom: 12px; color: var(--dsm-text); }
+  .dsm-lede { font-size: 18px; line-height: 1.6; color: #30435b; margin-bottom: 20px; }
+  .dsm-eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: #4f6da5; font-size: 12px; margin-bottom: 10px; }
+  .dsm-pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .dsm-pill { background: white; padding: 10px 14px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); font-weight: 600; color: #2b3c57; }
+  .dsm-cta-group { display: grid; gap: 10px; align-items: start; }
+  .dsm-btn { border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 14px 22px; border-radius: 12px; font-weight: 700; transition: transform 0.15s ease, box-shadow 0.15s ease; font-size: 16px; }
+  .dsm-btn-primary { background: linear-gradient(135deg, #5a8fdc, #7cb5ff); color: #0f1f3c; box-shadow: 0 12px 30px rgba(90, 143, 220, 0.35); }
+  .dsm-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(90, 143, 220, 0.45); }
+  .dsm-btn-full { width: 100%; }
+  .dsm-urgency { font-size: 14px; color: #42536b; }
+  .dsm-badges { display: grid; gap: 6px; font-size: 14px; color: #21324a; }
+  .dsm-hero__image { position: relative; text-align: center; }
+  .dsm-hero__image img { width: min(420px, 100%); border-radius: 24px; box-shadow: 0 14px 36px rgba(33, 50, 74, 0.25); background: white; }
+  .dsm-hero__placeholder { width: min(420px, 100%); aspect-ratio: 3 / 4; display: grid; place-items: center; border-radius: 24px; background: linear-gradient(135deg, #d9e7ff, #f0f4ff); color: var(--dsm-text); font-weight: 700; box-shadow: 0 14px 36px rgba(33, 50, 74, 0.18); }
+  .dsm-security { position: absolute; bottom: -20px; right: 10px; background: white; border-radius: 18px; padding: 14px 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.12); text-align: left; width: min(280px, 85%); }
+
+  .dsm-section-heading { text-align: center; margin-bottom: 28px; }
+  .dsm-section-heading h2 { font-size: clamp(24px, 3vw, 36px); color: var(--dsm-text); margin: 6px 0 0; }
+
+  .dsm-overview { padding: 24px clamp(20px, 6vw, 72px); }
+  .dsm-overview__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; background: linear-gradient(135deg, #eaf1fb, #f3f6ff); border-radius: 18px; padding: 18px 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.7); }
+  .dsm-card { background: white; border-radius: 16px; padding: 18px; box-shadow: 0 12px 28px rgba(0,0,0,0.06); border: 1px solid rgba(79, 109, 165, 0.12); color: #2a3b52; }
+  .dsm-card h3 { margin-bottom: 10px; color: #21324a; }
+  .dsm-card p { line-height: 1.6; }
+
+  .dsm-updates { background: linear-gradient(135deg, rgba(234, 241, 251, 0.8), rgba(244, 250, 255, 0.9)); border-radius: 28px; margin: 0 clamp(16px, 5vw, 48px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+  .dsm-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .dsm-list__item { background: white; padding: 16px 18px; border-radius: 14px; color: #1f2a38; box-shadow: 0 8px 20px rgba(0,0,0,0.05); border: 1px solid rgba(79, 109, 165, 0.1); }
+
+  .dsm-practice { background: linear-gradient(120deg, #f3f6ff, #eaf1fb); border-radius: 28px; margin: 0 clamp(16px, 5vw, 48px); }
+  .dsm-practice__content { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; align-items: center; }
+  .dsm-bullets { list-style: disc; padding-left: 20px; color: #1f2a38; line-height: 1.6; }
+  .dsm-practice__note { background: white; padding: 18px; border-radius: 18px; box-shadow: 0 12px 28px rgba(0,0,0,0.08); border: 1px solid rgba(79, 109, 165, 0.12); color: #21324a; }
+  .dsm-practice__note h3 { margin-bottom: 8px; }
+
+  .dsm-final-cta { background: linear-gradient(135deg, #dfe9fb, #eef4ff); border-radius: 28px; margin: clamp(24px, 4vw, 48px) clamp(16px, 5vw, 48px); }
+  .dsm-final-cta__content { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; align-items: center; }
+  .dsm-final-cta__card { background: white; padding: 18px; border-radius: 16px; box-shadow: 0 12px 24px rgba(0,0,0,0.08); border: 1px solid rgba(79, 109, 165, 0.12); }
+
+  .dsm-sticky-cta { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); width: min(480px, calc(100% - 32px)); background: white; border-radius: 16px; box-shadow: 0 14px 34px rgba(0,0,0,0.16); padding: 12px; z-index: 20; }
+
+  @media (max-width: 720px) {
+    .dsm-hero__image { order: -1; }
+    .dsm-security { position: relative; margin: 12px auto 0; right: auto; bottom: auto; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "DSM-5-TR Landing",
+  "settings": [
+    { "type": "text", "id": "product_handle", "label": "Product handle", "default": "diagnostic-and-statistical-manual-of-mental-disorders-text-revision-dsm-5-tr-5th-edition" }
+  ],
+  "presets": [
+    { "name": "DSM-5-TR Landing" }
+  ]
+}
+{% endschema %}

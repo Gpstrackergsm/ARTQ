@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "main": {
+      "type": "dsm-5-tr"
+    }
+  },
+  "order": ["main"]
+}
