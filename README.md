@@ -1,10 +1,10 @@
 # leafanoo-one-product
 
-A conversion-focused, single-product Shopify theme for Leafanoo. The home page is a landing page tailored for the Handmade Artistic Fruit Stand (functional design for modern homes).
+A conversion-focused, single-product Shopify theme for Leafanoo. The home page is a landing page tailored for the psychology bestseller “The Highly Sensitive Person.”
 
 ## Features
 - Hero-first layout with sticky mobile CTA and direct-to-checkout forms
-- Launch pricing block with compare-at pricing ($79 → $49) and urgency cues
+- Launch pricing block with compare-at pricing ($39 → $29) and urgency cues
 - Conversion assets: countdown timer, trust badges, reviews, stock limiter text
 - Sections: hero, benefits, features, lifestyle, pricing, trust, shipping & returns, FAQ, reviews, final CTA, footer
 - SEO-ready: meta tags, OpenGraph, JSON-LD product schema
@@ -31,8 +31,8 @@ A conversion-focused, single-product Shopify theme for Leafanoo. The home page i
 ```
 
 ## Product wiring
-- Default product handle: `handmade-artistic-fruit-stand-functional-design-for-modern-homes`
-- Price: **$49 USD** with compare-at **$79 USD**
+- Default product handle: `the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you`
+- Price: **$29 USD** with compare-at **$39 USD**
 - Buy Now forms submit directly to checkout and include dynamic checkout buttons.
 
 ## Installing locally
