@@ -1,13 +1,15 @@
 {
   "current": {
     "sections": {
-      "catalog": {
-        "type": "all-products",
-        "settings": {}
+      "landing": {
+        "type": "landing",
+        "settings": {
+          "product_handle": "the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you"
+        }
       }
     },
     "order": [
-      "catalog"
+      "landing"
     ]
   }
 }

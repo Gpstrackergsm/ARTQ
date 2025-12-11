@@ -1,8 +1,10 @@
 {
   "sections": {
     "home": {
-      "type": "goodreads-home",
-      "settings": {}
+      "type": "landing",
+      "settings": {
+        "product_handle": "the-highly-sensitive-person-how-to-thrive-when-the-world-overwhelms-you"
+      }
     }
   },
   "order": ["home"]
