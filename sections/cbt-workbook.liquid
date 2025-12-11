@@ -1,0 +1,236 @@
+{% liquid
+  assign featured_product = product
+
+  unless featured_product
+    assign product_handle = settings.product_handle | default: 'advanced-cognitive-behavioral-therapy-workbook-3rd-edition'
+    assign featured_product = all_products[product_handle]
+  endunless
+
+  assign primary_variant = featured_product.selected_or_first_available_variant
+  assign checkout_link = '/checkout'
+
+  if featured_product != blank and primary_variant
+    assign checkout_link = routes.cart_add_url | append: '?id=' | append: primary_variant.id | append: '&quantity=1&return_to=/checkout'
+  endif
+
+  assign hero_image = featured_product.featured_image
+%}
+
+<section class="cbt-hero" id="top">
+  <div class="cbt-hero__copy">
+    <p class="cbt-eyebrow">Workbook for real progress</p>
+    <h1>Advanced Cognitive Behavioral Therapy Workbook, 3rd Edition</h1>
+    <p class="cbt-lede">A practical, step-by-step workbook with 80+ evidence-based exercises, goal-setting templates, and reflective prompts to help readers apply CBT techniques in everyday life.</p>
+    <div class="cbt-pill-row">
+      <span class="cbt-pill">Guided exercises</span>
+      <span class="cbt-pill">Progress trackers</span>
+      <span class="cbt-pill">Clinician-ready tools</span>
+    </div>
+    <div class="cbt-cta-group">
+      {% if featured_product != blank and primary_variant %}
+        {% form 'product', featured_product, id: 'cbt-hero-buy-now' %}
+          <input type="hidden" name="id" value="{{ primary_variant.id }}">
+          <button type="submit" name="checkout" class="cbt-btn cbt-btn-primary">Order the Workbook — {{ primary_variant.price | money_without_trailing_zeros }}</button>
+        {% endform %}
+      {% else %}
+        <a class="cbt-btn cbt-btn-primary" href="{{ checkout_link }}">Order the Workbook</a>
+      {% endif %}
+      <p class="cbt-urgency">Ships within 1–2 business days · Free U.S. shipping</p>
+      <div class="cbt-badges">
+        <span>✔ Fillable digital companion included</span>
+        <span>✔ Lay-flat binding for easy writing</span>
+        <span>✔ Evidence-based CBT framework</span>
+      </div>
+    </div>
+  </div>
+  <div class="cbt-hero__image">
+    {% if hero_image %}
+      <img src="{{ hero_image | image_url: width: 800 }}" alt="Advanced CBT Workbook cover" loading="eager">
+    {% else %}
+      <div class="cbt-hero__placeholder">CBT Workbook</div>
+    {% endif %}
+    <div class="cbt-specs">
+      <p class="cbt-eyebrow">Key specs</p>
+      <p>Paperback · 8.5" x 11" · 256 pages</p>
+      <p>Publisher: Insightful Minds Press</p>
+    </div>
+  </div>
+</section>
+
+<section class="cbt-overview">
+  <div class="cbt-section-heading">
+    <p class="cbt-eyebrow">Built for change</p>
+    <h2>Turn CBT theory into daily practice</h2>
+  </div>
+  <div class="cbt-overview__grid">
+    <article class="cbt-card">
+      <h3>Foundations of CBT</h3>
+      <p>Clear explanations of cognitive distortions, thought records, and behavioral experiments to help learners grasp the essentials quickly.</p>
+    </article>
+    <article class="cbt-card">
+      <h3>Guided exercises</h3>
+      <p>80+ worksheets covering reframing thoughts, exposure planning, values-based action, and habit tracking.</p>
+    </article>
+    <article class="cbt-card">
+      <h3>Clinician tools</h3>
+      <p>Printable session templates, homework examples, and measurement scales to use with clients across telehealth or in-person care.</p>
+    </article>
+  </div>
+</section>
+
+<section class="cbt-inside">
+  <div class="cbt-section-heading">
+    <p class="cbt-eyebrow">What’s inside</p>
+    <h2>Your step-by-step CBT companion</h2>
+  </div>
+  <div class="cbt-list">
+    <div class="cbt-list__item">Foundations of CBT with thought records and behavioral experiments.</div>
+    <div class="cbt-list__item">Progress trackers: weekly mood charts and habit logs to visualize change.</div>
+    <div class="cbt-list__item">Case vignettes illustrating how to apply techniques in daily life.</div>
+    <div class="cbt-list__item">Clinician tools: printable session templates and homework examples.</div>
+    <div class="cbt-list__item">Digital companion PDF with fillable forms for remote or hybrid use.</div>
+  </div>
+</section>
+
+<section class="cbt-audience">
+  <div class="cbt-audience__content">
+    <div>
+      <p class="cbt-eyebrow">Who it’s for</p>
+      <h2>Built for self-learners, students, and clinicians</h2>
+      <ul class="cbt-bullets">
+        <li>Individuals seeking a structured, self-guided approach to CBT.</li>
+        <li>Therapists and counselors who want reproducible worksheets for clients.</li>
+        <li>Students in psychology and counseling programs needing a practical companion to coursework.</li>
+      </ul>
+    </div>
+    <div class="cbt-audience__note">
+      <h3>Benefits</h3>
+      <ul class="cbt-bullets">
+        <li>Turn theory into action with ready-to-use worksheets.</li>
+        <li>Build consistent habits through measurable weekly goals.</li>
+        <li>Strengthen coping skills for anxiety, low mood, and stress.</li>
+        <li>Adaptable for telehealth, group sessions, or in-person use.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cbt-updates" id="pricing">
+  <div class="cbt-updates__content">
+    <div>
+      <p class="cbt-eyebrow">What’s new in the 3rd edition</p>
+      <h2>Expanded tools and updated guidance</h2>
+      <ul class="cbt-bullets">
+        <li>New chapters on rumination, perfectionism, and social anxiety.</li>
+        <li>Updated measurement tools aligned with current clinical guidelines.</li>
+        <li>Mindfulness-integrated exercises for modern CBT practice.</li>
+        <li>Lay-flat binding plus a digital companion for printable worksheets.</li>
+      </ul>
+      <div class="cbt-cta-group">
+        {% if featured_product != blank and primary_variant %}
+          {% form 'product', featured_product, id: 'cbt-final-buy-now' %}
+            <input type="hidden" name="id" value="{{ primary_variant.id }}">
+            <button type="submit" name="checkout" class="cbt-btn cbt-btn-primary">Add to cart</button>
+          {% endform %}
+        {% else %}
+          <a class="cbt-btn cbt-btn-primary" href="{{ checkout_link }}">Add to cart</a>
+        {% endif %}
+        <p class="cbt-urgency">30-day returns · Secure checkout · Ships fast</p>
+      </div>
+    </div>
+    <div class="cbt-spec-card">
+      <h3>Specifications</h3>
+      <ul class="cbt-bullets">
+        <li>Format: Paperback (8.5" x 11")</li>
+        <li>Pages: 256</li>
+        <li>Language: English</li>
+        <li>Publisher: Insightful Minds Press</li>
+        <li>ISBN-13: 978-1-23456-789-0</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="cbt-sticky-cta" id="cbt-sticky-cta">
+  {% if featured_product != blank and primary_variant %}
+    {% form 'product', featured_product, id: 'cbt-sticky-buy-now' %}
+      <input type="hidden" name="id" value="{{ primary_variant.id }}">
+      <button type="submit" name="checkout" class="cbt-btn cbt-btn-primary cbt-btn-full">Order the Workbook — {{ primary_variant.price | money_without_trailing_zeros }}</button>
+    {% endform %}
+  {% else %}
+    <a class="cbt-btn cbt-btn-primary cbt-btn-full" href="{{ checkout_link }}">Order the Workbook</a>
+  {% endif %}
+</div>
+
+<style>
+  :root {
+    --cbt-navy: #1f2d3f;
+    --cbt-teal: #36b6a5;
+    --cbt-cream: #f7fafc;
+    --cbt-light: #e6f3f1;
+    --cbt-text: #1f2d3f;
+  }
+
+  .cbt-hero,
+  .cbt-overview,
+  .cbt-inside,
+  .cbt-audience,
+  .cbt-updates {
+    padding: clamp(48px, 6vw, 96px) clamp(20px, 6vw, 72px);
+  }
+
+  .cbt-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    align-items: center;
+    gap: clamp(32px, 5vw, 64px);
+    background: linear-gradient(135deg, #eef8f6, #ffffff);
+    border-radius: 28px;
+    margin: clamp(24px, 4vw, 48px) clamp(16px, 5vw, 48px);
+    box-shadow: 0 16px 40px rgba(31, 45, 63, 0.12);
+  }
+
+  .cbt-hero__copy h1 { font-size: clamp(28px, 4vw, 44px); margin-bottom: 12px; color: var(--cbt-text); }
+  .cbt-lede { font-size: 18px; line-height: 1.6; color: #2f4057; margin-bottom: 20px; }
+  .cbt-eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: #3a7b74; font-size: 12px; margin-bottom: 10px; }
+  .cbt-pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .cbt-pill { background: white; padding: 10px 14px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); font-weight: 600; color: #24414a; }
+  .cbt-cta-group { display: grid; gap: 10px; align-items: start; }
+  .cbt-btn { border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 14px 22px; border-radius: 12px; font-weight: 700; transition: transform 0.15s ease, box-shadow 0.15s ease; font-size: 16px; }
+  .cbt-btn-primary { background: linear-gradient(135deg, #36b6a5, #65d6c9); color: #0f1f3c; box-shadow: 0 12px 30px rgba(54, 182, 165, 0.35); }
+  .cbt-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(54, 182, 165, 0.45); }
+  .cbt-btn-full { width: 100%; }
+  .cbt-urgency { font-size: 14px; color: #3b4f66; }
+  .cbt-badges { display: grid; gap: 6px; font-size: 14px; color: #1f2d3f; }
+  .cbt-hero__image { position: relative; text-align: center; }
+  .cbt-hero__image img { width: min(420px, 100%); border-radius: 24px; box-shadow: 0 14px 36px rgba(31, 45, 63, 0.25); background: white; }
+  .cbt-hero__placeholder { width: min(420px, 100%); aspect-ratio: 3 / 4; display: grid; place-items: center; border-radius: 24px; background: linear-gradient(135deg, #d7f1ec, #f1fbf8); color: var(--cbt-text); font-weight: 700; box-shadow: 0 14px 36px rgba(31, 45, 63, 0.18); }
+  .cbt-specs { position: absolute; bottom: -20px; right: 10px; background: white; border-radius: 18px; padding: 14px 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.12); text-align: left; width: min(280px, 85%); }
+
+  .cbt-section-heading { text-align: center; margin-bottom: 28px; }
+  .cbt-section-heading h2 { font-size: clamp(24px, 3vw, 36px); color: var(--cbt-text); margin: 6px 0 0; }
+  .cbt-section-heading p { margin: 0; }
+
+  .cbt-overview__grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .cbt-card { background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 10px 26px rgba(0,0,0,0.06); border: 1px solid #e2eef0; }
+  .cbt-card h3 { margin-top: 0; color: #1f2d3f; }
+  .cbt-card p { margin-bottom: 0; color: #30455a; }
+
+  .cbt-list { display: grid; gap: 10px; max-width: 900px; margin: 0 auto; }
+  .cbt-list__item { background: #fff; padding: 14px 16px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border: 1px solid #e6f3f1; color: #2a3c4c; }
+
+  .cbt-audience__content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start; }
+  .cbt-bullets { padding-left: 18px; color: #2f4057; display: grid; gap: 8px; }
+  .cbt-audience__note { background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 10px 26px rgba(0,0,0,0.06); border: 1px solid #e2eef0; }
+
+  .cbt-updates { background: var(--cbt-cream); margin: clamp(12px, 3vw, 24px) 0; }
+  .cbt-updates__content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start; }
+  .cbt-spec-card { background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 10px 26px rgba(0,0,0,0.06); border: 1px solid #e2eef0; }
+
+  .cbt-sticky-cta { position: sticky; bottom: 12px; margin: 16px; z-index: 10; }
+
+  @media (max-width: 640px) {
+    .cbt-hero { margin: 16px; }
+    .cbt-sticky-cta { margin: 8px; }
+  }
+</style>
